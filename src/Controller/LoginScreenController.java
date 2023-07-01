@@ -33,7 +33,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-
 public class LoginScreenController implements Initializable {
 
     // ===============[FX Component]===============//
@@ -124,7 +123,6 @@ public class LoginScreenController implements Initializable {
     @FXML
     private Label TitleTokoPaediGlow;
 
-    
     // ===============[Initializer]===============//
 
     @Override
@@ -166,7 +164,6 @@ public class LoginScreenController implements Initializable {
         ImageDaftar.setVisible(true);
         DaftarLabel.setVisible(true);
         TopoWhite.setVisible(true);
-
 
         Slide.setDuration(Duration.millis(1000));
         Slide.setNode(SlideCard);
@@ -230,7 +227,6 @@ public class LoginScreenController implements Initializable {
         FadeTransition GambarDaftar = new FadeTransition(Duration.millis(500), ImageDaftar);
         FadeTransition LabelDaftar = new FadeTransition(Duration.millis(500), DaftarLabel);
         FadeTransition Topo = new FadeTransition(Duration.millis(300), TopoWhite);
-        
 
         Slide.setDuration(Duration.millis(1000));
         Slide.setNode(SlideCard);
@@ -283,8 +279,6 @@ public class LoginScreenController implements Initializable {
         BackgroundSwitch.setDuration(Duration.millis(1));
         BackgroundSwitch.setInterpolator(Custom1);
         BackgroundSwitch.setToX(0);
-        
-        
 
         Notifier.setText("");
         DaftarNamaField.clear();
@@ -307,28 +301,42 @@ public class LoginScreenController implements Initializable {
         PauseTransition pause = new PauseTransition(Duration.millis(3000));
         FadeTransition HideNotifier = new FadeTransition(Duration.millis(800), Notifier);
 
-        if (Sandi.length() <= 7) {
-            Notifier.setText("Sandi harus 8+ digit");
-            SequentialTransition play = new SequentialTransition(pause, HideNotifier);
-            HideNotifier.setFromValue(1.0);
-            HideNotifier.setToValue(0.0);
-            play.play();
-        } else {
-
-            if (Konfirmasi.equals(Sandi)) {
-                Database.ConnectToDataBase("src/TokopaediDatabase.db");
-                Database.InsertUser(Nama, Nomor, Sandi);
-                DaftarNamaField.clear();
-                DaftarNomorField.clear();
-                DaftarSandiField.clear();
-                DaftarKonfirmasiField.clear();
-                Database.DisconnectFromDataBase();
-            } else {
-                Notifier.setText("Sandi tidak sama");
+        if (Nama.isBlank()) {
+                Notifier.setText("Nama Harus Diisi");
                 SequentialTransition play = new SequentialTransition(pause, HideNotifier);
                 HideNotifier.setFromValue(1.0);
                 HideNotifier.setToValue(0.0);
                 play.play();
+        } else {
+            if (Nomor.length() < 12) {
+                Notifier.setText("Nomor harus 12+ digit");
+                SequentialTransition play = new SequentialTransition(pause, HideNotifier);
+                HideNotifier.setFromValue(1.0);
+                HideNotifier.setToValue(0.0);
+                play.play();
+            } else if (Sandi.length() <= 7) {
+                Notifier.setText("Sandi harus 8+ digit");
+                SequentialTransition play = new SequentialTransition(pause, HideNotifier);
+                HideNotifier.setFromValue(1.0);
+                HideNotifier.setToValue(0.0);
+                play.play();
+            } else {
+
+                if (Konfirmasi.equals(Sandi)) {
+                    Database.ConnectToDataBase("src/TokopaediDatabase.db");
+                    Database.InsertUser(Nama, Nomor, Sandi);
+                    DaftarNamaField.clear();
+                    DaftarNomorField.clear();
+                    DaftarSandiField.clear();
+                    DaftarKonfirmasiField.clear();
+                    Database.DisconnectFromDataBase();
+                } else {
+                    Notifier.setText("Sandi tidak sama");
+                    SequentialTransition play = new SequentialTransition(pause, HideNotifier);
+                    HideNotifier.setFromValue(1.0);
+                    HideNotifier.setToValue(0.0);
+                    play.play();
+                }
             }
         }
 
@@ -345,7 +353,7 @@ public class LoginScreenController implements Initializable {
         PauseTransition pause = new PauseTransition(Duration.millis(3000));
         FadeTransition HideNotifier = new FadeTransition(Duration.millis(800), Notifier);
 
-        if(Nama.length() == 0 && Sandi.length() == 0){
+        if (Nama.length() == 0 && Sandi.length() == 0) {
             Notifier.setText("Form Kosong");
             SequentialTransition play = new SequentialTransition(pause, HideNotifier);
             HideNotifier.setFromValue(1.0);
@@ -353,15 +361,14 @@ public class LoginScreenController implements Initializable {
             play.play();
             Database.DisconnectFromDataBase();
 
-        }
-        else if (Database.AuthenticationBySandiDanNama(Sandi, Nama)) {
+        } else if (Database.AuthenticationBySandiDanNama(Sandi, Nama)) {
             Session x = new Session();
             x.setID(Database.getID(Sandi, Nama));
             Database.DisconnectFromDataBase();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/GraphicUserInterface/MainScreen.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = new Stage();
-            
+
             stage.setScene(scene);
             stage.setResizable(false);
             stage.initStyle(StageStyle.TRANSPARENT);
