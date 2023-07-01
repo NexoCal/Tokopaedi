@@ -1,0 +1,32 @@
+.OverlayBackgroud{
+    -fx-background-color: rgba(0,0,0,0.4);
+}
+
+.CardBackground{
+    -fx-background-color: #ffffff;
+}
+
+.ConfirmButton{
+    -fx-border-color: #3C394D;
+    -fx-background-color: #3C394D;
+
+}
+
+.CancelButton{
+    -fx-border-color: #3C394D;
+    -fx-background-color: #ffffff;
+}
+
+.Field{
+    -fx-border-color: TRANSPARENT TRANSPARENT #3C394D TRANSPARENT;
+    -fx-background-color: TRANSPARENT;
+}
+
+.seletor{
+    -fx-font-family: Arial;
+    -fx-font-style: bold;
+    -fx-font-size: 20;
+    -fx-border-color: TRANSPARENT TRANSPARENT #3C394D TRANSPARENT;
+    -fx-background-color: TRANSPARENT;
+
+}

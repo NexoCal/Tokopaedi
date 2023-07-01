@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="160.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CardController">
+   <children>
+      <ImageView fx:id="GambarBarangDisplay" fitHeight="150.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="NamaBarangDisplay" alignment="BOTTOM_RIGHT" maxHeight="70.0" maxWidth="160.0" minHeight="30.0" minWidth="160.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="45.0" prefWidth="160.0" text="Example" wrapText="true">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="HargaDisplay" prefHeight="6.0" prefWidth="160.0" text="Rp">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="Keterangan" alignment="TOP_LEFT" prefHeight="10.0" prefWidth="160.0" text="Placed by:">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="NamaUserDisplay" text="User1">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</VBox>

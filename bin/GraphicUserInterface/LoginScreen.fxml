@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Point3D?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@StyleSheets/LoginScreenStyleSheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginScreenController">
+   <children>
+      <Pane fx:id="BackgroundBlack" layoutX="-1280.0" prefHeight="800.0" prefWidth="1280.0" styleClass="backgroundSwitch" />
+      <Pane prefHeight="800.0" prefWidth="1280.0">
+         <children>
+            <Pane layoutX="240.0" layoutY="103.0" prefHeight="595.0" prefWidth="800.0">
+               <children>
+                  <ImageView fitHeight="583.0" fitWidth="855.0" pickOnBounds="true" preserveRatio="true" scaleX="1.2" scaleY="1.1" scaleZ="1.1">
+                     <image>
+                        <Image url="@../ImageAsset/Topographic%20Blackish.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="TopoWhite" fitHeight="583.0" fitWidth="855.0" pickOnBounds="true" preserveRatio="true" scaleX="1.2" scaleY="1.1" scaleZ="1.1">
+                     <image>
+                        <Image url="@../ImageAsset/Topographic%20white.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="BackCard" layoutX="-16.0" layoutY="68.0" prefHeight="474.0" prefWidth="832.0" styleClass="backCard">
+                     <children>
+                        <ImageView fx:id="ImageMasuk" fitHeight="300.0" fitWidth="300.0" layoutX="462.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ImageAsset/Masuk%20animasi.png" />
+                           </image>
+                           <viewport>
+                              <Rectangle2D />
+                           </viewport>
+                           <rotationAxis>
+                              <Point3D />
+                           </rotationAxis>
+                        </ImageView>
+                        <Label fx:id="MasukLabel" layoutX="440.0" layoutY="304.0" prefHeight="76.0" prefWidth="348.0" text="Selamat Datang di Tokopaedi Belum punya akun?" textAlignment="CENTER" textFill="#3c394d" textOverrun="WORD_ELLIPSIS" wrapText="true">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="ImageDaftar" fitHeight="242.0" fitWidth="317.0" layoutX="88.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ImageAsset/Daftar%20animasi.png" />
+                           </image>
+                           <viewport>
+                              <Rectangle2D />
+                           </viewport>
+                        </ImageView>
+                        <Label fx:id="DaftarLabel" layoutX="42.0" layoutY="304.0" prefHeight="76.0" prefWidth="393.0" text="Selamat Bergabung di Tokopaedi Sudah memiliki akun?" textAlignment="CENTER" textFill="#3c394d" textOverrun="WORD_ELLIPSIS" wrapText="true">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="DaftarSwitch" layoutX="549.0" layoutY="379.0" mnemonicParsing="false" onMouseClicked="#SwitchToDaftar" prefHeight="30.0" prefWidth="125.0" styleClass="InnerButtonMasuk" text="Daftar" textFill="#feede6">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="MasukSwitch" layoutX="174.0" layoutY="379.0" mnemonicParsing="false" onMouseClicked="#SwitchToMasuk" prefHeight="30.0" prefWidth="125.0" styleClass="InnerButtonMasuk" text="Masuk" textFill="#feede6">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Pane fx:id="SlideCard" layoutX="46.0" layoutY="-35.0" prefHeight="544.0" prefWidth="327.0" styleClass="LoginPaneMasuk">
+                           <children>
+                              <Label fx:id="TitleTokoPaedi" layoutX="102.0" layoutY="61.0" text="Tokopaedi" textFill="#feede6">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Pane fx:id="GroupMasuk" layoutX="56.0" layoutY="61.0" prefHeight="357.0" prefWidth="220.0">
+                                 <children>
+                                    <TextField fx:id="MasukNamaField" layoutX="5.0" layoutY="82.0" prefHeight="30.0" prefWidth="210.0" styleClass="fieldDaftar" />
+                                    <Button fx:id="MasukButton" layoutX="48.0" layoutY="323.0" mnemonicParsing="false" onMouseClicked="#MasukUser" prefHeight="30.0" prefWidth="125.0" styleClass="OuterButton" text="Masuk" textFill="#3c394d">
+                                       <font>
+                                          <Font name="Arial Rounded MT Bold" size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <Label fx:id="MasukDetailSandiField" layoutX="5.0" layoutY="132.0" text="Kata Sandi" textFill="#feede6">
+                                       <font>
+                                          <Font name="Arial Rounded MT Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="MasukDetailNamaField" layoutX="5.0" layoutY="67.0" text="Nama Pengguna atau nomor HP" textFill="#feede6">
+                                       <font>
+                                          <Font name="Arial Rounded MT Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <PasswordField fx:id="MasukSandiField" layoutX="5.0" layoutY="148.0" prefHeight="30.0" prefWidth="210.0" styleClass="fieldDaftar" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="GroupDaftar" layoutX="56.0" layoutY="73.0" prefHeight="357.0" prefWidth="220.0">
+                                 <children>
+                                    <Label fx:id="DaftarDetailKonfirmasiField" layoutX="5.0" layoutY="249.0" text="Konfirmasi Kata Sandi" textFill="#feede6">
+                                       <font>
+                                          <Font name="Arial Rounded MT Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="DaftarDetailSandiField" layoutX="5.0" layoutY="184.0" text="Kata Sandi" textFill="#feede6">
+                                       <font>
+                                          <Font name="Arial Rounded MT Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="DaftarNomorField" layoutX="5.0" layoutY="136.0" prefHeight="30.0" prefWidth="210.0" styleClass="fieldDaftar" />
+                                    <Label fx:id="DaftarDetailNomorField" layoutX="5.0" layoutY="120.0" text="Nomor HP" textFill="#feede6">
+                                       <font>
+                                          <Font name="Arial Rounded MT Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="DaftarNamaField" layoutX="5.0" layoutY="70.0" prefHeight="30.0" prefWidth="210.0" styleClass="fieldDaftar" />
+                                    <Label fx:id="DaftarDetailNamaField" layoutX="5.0" layoutY="55.0" text="Nama Pengguna" textFill="#feede6">
+                                       <font>
+                                          <Font name="Arial Rounded MT Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="DaftarButton" layoutX="48.0" layoutY="311.0" mnemonicParsing="false" onMouseClicked="#DaftarUser" prefHeight="30.0" prefWidth="125.0" styleClass="OuterButton" text="Daftar" textFill="#3c394d">
+                                       <font>
+                                          <Font name="Arial Rounded MT Bold" size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <PasswordField fx:id="DaftarKonfirmasiField" layoutX="5.0" layoutY="265.0" prefHeight="30.0" prefWidth="210.0" styleClass="fieldDaftar" />
+                                    <PasswordField fx:id="DaftarSandiField" layoutX="5.0" layoutY="199.0" prefHeight="30.0" prefWidth="210.0" styleClass="fieldDaftar" />
+                                 </children>
+                              </Pane>
+                              <Label fx:id="Notifier" alignment="CENTER" contentDisplay="BOTTOM" layoutX="46.0" layoutY="430.0" prefHeight="15.0" prefWidth="240.0" textAlignment="CENTER" textFill="#feede6">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

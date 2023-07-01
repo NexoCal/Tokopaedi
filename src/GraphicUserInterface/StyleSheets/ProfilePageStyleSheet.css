@@ -1,0 +1,29 @@
+.Background{
+    -fx-background-color: #feede6;
+}
+
+.TextBackPane{
+    -fx-border-color: TRANSPARENT #000000 #000000 TRANSPARENT;
+    -fx-background-color: rgb(255, 255, 255);
+}
+
+.SideView{
+    -fx-background-color: linear-gradient(to bottom,rgba(56, 53, 68,1),rgb(48, 47, 53));
+}
+
+.PhotoCard{
+    -fx-border-color: TRANSPARENT;
+    -fx-background-color: rgb(245, 245, 245);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 4);
+}
+
+.PhotoButton{
+    -fx-border-color: TRANSPARENT;
+    -fx-background-color: rgb(245, 245, 245);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 4);
+}
+
+.UbahButton{
+    -fx-background-color: TRANSPARENT;
+    -fx-border-color: TRANSPARENT;
+}

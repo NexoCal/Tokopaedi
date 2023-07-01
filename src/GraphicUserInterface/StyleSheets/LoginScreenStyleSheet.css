@@ -1,0 +1,132 @@
+.background{
+    -fx-background-color: rgba(255, 255, 255,1);
+}
+
+.backgroundSwitch{
+    -fx-background-color: rgb(52, 49, 65);
+
+}
+
+.LoginPaneMasuk{
+    -fx-background-color: rgba(60,57,77,1);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 4);
+
+}
+
+.MainText{
+    -fx-font-style: normal;
+    -fx-font-weight: 400px;
+    -fx-text-fill: #161616;
+    
+}
+
+.fieldMasuk{
+    -fx-border-width: 1.5;
+    -fx-border-style: solid;
+    -fx-border-color: TRANSPARENT TRANSPARENT #3C394D TRANSPARENT ;
+    -fx-background-color: TRANSPARENT;
+    -fx-font-style: bold;
+}
+
+.fieldDaftar{
+    -fx-border-width: 1.5;
+    -fx-border-style: solid;
+    -fx-border-color: TRANSPARENT TRANSPARENT #feede6 TRANSPARENT ;
+    -fx-background-color: TRANSPARENT;
+    -fx-font-weight: 2;
+    -fx-text-fill: #feede6;
+}
+
+
+
+.InnerButtonMasuk{
+    -fx-background-color: rgba(60,57,77,1);
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: TRANSPARENT;
+    -fx-border-style: solid;
+    -fx-cursor: default;
+}
+
+.InnerButtonMasuk:hover{
+    -fx-background-color: rgba(56, 53, 68,1);
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: TRANSPARENT;
+    -fx-border-style: solid;
+    -fx-cursor: Pointer;
+}
+
+.InnerButtonDaftar{
+    -fx-background-color: #feede6;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: TRANSPARENT;
+    -fx-border-style: solid;
+    -fx-cursor: default;
+}
+
+
+.OuterButton{
+    -fx-background-color: rgba(254,237,230,1);
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: TRANSPARENT;
+    -fx-border-style: solid;
+    -fx-cursor: default;
+}
+
+.OuterButton:hover{
+    -fx-background-color: rgb(233, 219, 213,1);
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: TRANSPARENT;
+    -fx-border-style: solid;
+    -fx-cursor: Pointer;
+}
+
+.backCard{
+    -fx-background-color: radial-gradient(radius 180%, rgb(255, 255, 255) 17%, rgba(254,237,230,1) 100%);
+    -fx-border-color: TRANSPARENT;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 4);
+}
+
+.LoginButton:hover{
+    -fx-background-color: rgb(154, 83, 180);
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: TRANSPARENT;
+    -fx-border-style: solid;
+    -fx-cursor: pointer;
+}
+
+.AuthButton{
+    -fx-background-color: rgba(248, 248, 248, 1);
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: rgba(151, 151, 151,1);
+    -fx-border-style: solid;
+    -fx-cursor: default;
+}
+
+.AuthButton:hover{
+    -fx-background-color: rgba(238, 238, 238,1);
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: rgba(238, 238, 238,1);
+    -fx-border-style: solid;
+    -fx-cursor: pointer;
+}
+
+.highlightText{
+    -fx-text-fill: #9c02d2;
+}
+
+.highlightText:hover{
+    -fx-text-fill: #7e00ac;
+
+}
+
+.ColorSwitcher{
+    -fx-fill: radial-gradient(radius 180%, rgba(64,48,134,1) 47%, rgba(60,57,77,1) 100%);
+}
