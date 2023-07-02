@@ -15,9 +15,15 @@
 }
 
 .ButtonBeli{
-
+    -fx-background-color: rgba(60, 57, 77, 1);
+    -fx-border-color: TRANSPARENT TRANSPARENT #000000 TRANSPARENT;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
 }
 
 .ButtonHubung{
-
+    -fx-background-color: TRANSPARENT;
+    -fx-border-color: black;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
 }
