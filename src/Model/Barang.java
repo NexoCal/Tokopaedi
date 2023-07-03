@@ -1,7 +1,7 @@
 package Model;
 
 public class Barang {
-    int ID;
+    static int ID;
     String NamaBarang;
     String HargaBarang;
     String User;

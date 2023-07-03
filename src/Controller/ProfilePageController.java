@@ -282,8 +282,6 @@ public class ProfilePageController implements Initializable {
     void UbahClick(MouseEvent event) {
         String NewData = Replacement.getText();
         String NewDataKelamin = PilihKelamin.getValue();
-        LocalDate Tanggal = PilihTanggal.getValue();
-        String DateFormat = Tanggal.format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
         if (Subject.equals("Alamat")){
             Alamat.setText(NewData);
             DB.Update(x.getID(),Subject, NewData);
@@ -303,6 +301,8 @@ public class ProfilePageController implements Initializable {
             JenisKelamin.setText(NewDataKelamin);
             DB.Update(x.getID(), Subject, NewDataKelamin);
         }else if (Subject.equals("TanggalLahir")){
+            LocalDate Tanggal = PilihTanggal.getValue();
+            String DateFormat = Tanggal.format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
             TanggalLahir.setText(DateFormat);
             DB.Update(x.getID(), Subject, DateFormat);
         }

@@ -7,7 +7,6 @@ import java.util.ResourceBundle;
 
 import Model.Session;
 import javafx.util.Duration;
-
 import javafx.animation.FadeTransition;
 import javafx.animation.FillTransition;
 import javafx.animation.Interpolator;
