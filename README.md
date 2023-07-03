@@ -17,9 +17,12 @@ SDD : https://docs.google.com/document/d/1ny5dfzbVAttYfDfVqxA2w99VG4XmQl7_/edit?
 
 Aplikasi Desktop ini dirancang dan dibuat untuk tugas expo kampus Universitas Islam Indonesia - Fakultas Teknik Industri
 
-Team :
+Team Phi:
 Muhammad Adrian Rizky Wijaya - 22523018
+
 Rian Nur Ikhsan - 22523297
+
 Ahmad Gunawan Triyanto - 22523284
+
 Muhammad Syahirul Alim- 22523237
 
