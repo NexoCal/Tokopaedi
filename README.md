@@ -1,18 +1,25 @@
-## Getting Started
+## Apa itu Tokopaedi
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Tokopaedi adalah sebuah aplikasi desktop yang memudahkan proses pencarian dan pembelian barang bekas. 
 
-## Folder Structure
+## Design Interface
 
-The workspace contains two folders by default, where:
+Figma : https://www.figma.com/file/4IPJyttlbWIz2vEmfkcYQM/Tokped-kawai?type=design&node-id=627%3A368&mode=design&t=zGSVuX2g3jqWUgJF-1
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Dokumentasi
+berikut dokumentasi dari proses analisis dan perancangan tokopaedi
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+SRS : https://docs.google.com/document/d/1nFtX4Bbx6IlKwERbaLy5h42BNfJ3i4A0/edit?usp=sharing&ouid=114595445961113058276&rtpof=true&sd=true
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+SDD : https://docs.google.com/document/d/1ny5dfzbVAttYfDfVqxA2w99VG4XmQl7_/edit?usp=sharing&ouid=114595445961113058276&rtpof=true&sd=true
 
-## Dependency Management
+## Pesan Singkat
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+Aplikasi Desktop ini dirancang dan dibuat untuk tugas expo kampus Universitas Islam Indonesia - Fakultas Teknik Industri
+
+Team :
+Muhammad Adrian Rizky Wijaya - 22523018
+Rian Nur Ikhsan - 22523297
+Ahmad Gunawan Triyanto - 22523284
+Muhammad Syahirul Alim- 22523237
+
