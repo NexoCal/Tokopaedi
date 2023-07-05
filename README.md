@@ -1,6 +1,6 @@
 ## Apa itu Tokopaedi
 
-Tokopaedi adalah sebuah aplikasi desktop yang memudahkan proses pencarian dan pembelian barang bekas. 
+Pak Edi merupakan seorang politikus yang ingin beristirahat dari dunia politik dan ingin masuk ke dalam industri teknologi. Pak Edi melihat sekeliling banyak sekali barang bekas yang di jual di sosial media tidak teratur dan sangat jauh antara deskripsi dengan barang yang dijual. Sehingga Pak Edi berinisiatif untuk mendirikan marketplace barang bekas untuk mengatur alur dari jual beli barang bekas lebih terorganisir bernamakan "Tokopaedi". 
 
 ## Design Interface
 
