@@ -15,7 +15,7 @@ SRS : https://docs.google.com/document/d/1nFtX4Bbx6IlKwERbaLy5h42BNfJ3i4A0/edit?
 SDD : https://docs.google.com/document/d/1ny5dfzbVAttYfDfVqxA2w99VG4XmQl7_/edit?usp=sharing&ouid=114595445961113058276&rtpof=true&sd=true
 
 ## Perangkat Lunak Pihak Ke-3 Untuk Mengakses Basis Data
-https://www.sqlite.org/index.html
+SQLite : https://www.sqlite.org/index.html
 
 ## Pesan Singkat
 
