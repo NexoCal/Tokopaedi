@@ -86,23 +86,6 @@ public class DatabaseModel {
 
     }
 
-    public void InsertBarang(String Nama, String Harga, String Penjual, InputStream Gambar) {
-        String sql = "INSERT INTO DataProdukBarang(Nama,Harga,Penjual,Gambar) VALUES(?,?,?,?)";
-
-        try (PreparedStatement pstmt = dBConnection.prepareStatement(sql)) {
-            pstmt.setString(1, Nama);
-            pstmt.setString(2, Harga);
-            pstmt.setString(3, Penjual);
-            pstmt.setBinaryStream(4, Gambar);
-            pstmt.executeUpdate();
-            System.out.println("Barang Berhasil Ditambah");
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            System.out.print(e);
-        }
-
-    }
-
     public String GetProductDataNama(int ID) {
         String sql = "SELECT ID,Nama FROM DataProdukBarang";
         String Nama = "";
@@ -317,6 +300,61 @@ public class DatabaseModel {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+    }
+
+    public void Deletebarang(int ID){
+        String sql = "DELETE FROM DataProdukBarang WHERE ID = ?";
+        try (PreparedStatement pstmt = dBConnection.prepareStatement(sql)) {
+            pstmt.setInt(1, ID);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
+    public void UpdateBarang(int ID, String Nama, String Harga,String Penjual,String Kondisi, String Ukuran, String Brand,
+        String Warna, String Katagori, String Deskripsi, File Gambar) throws FileNotFoundException, IOException{
+        String sql = "UPDATE DataProdukBarang SET Nama = ? , Harga = ? , Penjual =? , Kondisi = ? , Ukuran = ? , Brand = ? , Warna = ? , Katagori = ? , Deskripsi = ? , Gambar = ?"+" WHERE ID = ?";
+
+        try (PreparedStatement pstmt = dBConnection.prepareStatement(sql);FileInputStream fis = new FileInputStream(Gambar);) {
+            pstmt.setString(1, Nama);
+            pstmt.setString(2, Harga);
+            pstmt.setString(3, Penjual);
+            pstmt.setString(4, Kondisi);
+            pstmt.setString(5, Ukuran);
+            pstmt.setString(6, Brand);
+            pstmt.setString(7, Warna);
+            pstmt.setString(8, Katagori);
+            pstmt.setString(9,Deskripsi);
+            pstmt.setBinaryStream(10,(InputStream)fis, (int)Gambar.length());
+            pstmt.setInt(11, ID);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+                
+    }
+
+    public void UpdateBarang(int ID, String Nama, String Harga,String Penjual,String Kondisi, String Ukuran, String Brand,
+        String Warna, String Katagori, String Deskripsi) throws FileNotFoundException, IOException{
+        String sql = "UPDATE DataProdukBarang SET Nama = ? , Harga = ? , Penjual =? , Kondisi = ? , Ukuran = ? , Brand = ? , Warna = ? , Katagori = ?, Deskripsi = ?"+" WHERE ID = ?";
+
+        try (PreparedStatement pstmt = dBConnection.prepareStatement(sql);) {
+            pstmt.setString(1, Nama);
+            pstmt.setString(2, Harga);
+            pstmt.setString(3, Penjual);
+            pstmt.setString(4, Kondisi);
+            pstmt.setString(5, Ukuran);
+            pstmt.setString(6, Brand);
+            pstmt.setString(7, Warna);
+            pstmt.setString(8, Katagori);
+            pstmt.setString(9, Deskripsi);
+            pstmt.setInt(10, ID);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+                
     }
 }
 

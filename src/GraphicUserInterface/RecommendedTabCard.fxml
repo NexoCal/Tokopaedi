@@ -13,7 +13,7 @@
             <Font name="Arial Bold" size="24.0" />
          </font>
       </Label>
-      <HBox fx:id="Base" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="255.0" prefWidth="1158.0" spacing="31.0" styleClass="backgroundCard" stylesheets="@StyleSheets/RecommendTabCard.css">
+      <HBox fx:id="Base" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="255.0" prefWidth="1158.0" spacing="31.0" styleClass="backgroundCard" stylesheets="@StyleSheets/TabCard.css">
          <children>
             <VBox fx:id="Vbox1" alignment="TOP_CENTER" prefHeight="451.0" prefWidth="160.0" spacing="30.0" />
             <VBox fx:id="Vbox2" alignment="TOP_CENTER" prefHeight="454.0" prefWidth="160.0" spacing="30.0" />

@@ -251,6 +251,9 @@ public class KatalogPageAddController implements Initializable {
         String PenjualBarang = session.getNama();
         File GambarBarang = DataGambarBarangSimpan;
 
+        if(NamaBarang == null || HargaBarang == null || KategoriBarang == null || KondisiBarang == null|| BrandBarang == null|| UkuranBarang == null|| WarnaBarang == null){
+
+        }else{
         try {
             DB.InsertBarang(NamaBarang,HargaBarang,PenjualBarang,KondisiBarang,UkuranBarang,BrandBarang,WarnaBarang,KategoriBarang,Deskripsi,GambarBarang);
         } catch (SQLException e) {
@@ -271,6 +274,7 @@ public class KatalogPageAddController implements Initializable {
         stage.show();
 
         ((Parent) event.getSource()).getScene().getWindow().hide();
+        }
 
     }
 
