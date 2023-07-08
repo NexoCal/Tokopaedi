@@ -310,6 +310,9 @@ public class KatalogEditDeletePageController implements Initializable {
     @FXML
     void Edit(MouseEvent event) throws IOException, SQLException {
         DB.ConnectToDataBase("src/TokopaediDatabase.db");
+
+        boolean error = false;
+        
         String NamaBarang = FieldNamaBarang.getText();
         String HargaBarang = FieldHargaBarang.getText();
         String KondisiBarang = PilihKondisi.getValue();
@@ -320,37 +323,53 @@ public class KatalogEditDeletePageController implements Initializable {
         String Deskripsi = FieldDeskripsi.getText();
         String PenjualBarang = session.getNama();
         File GambarBarang = DataGambarBarangSimpan;
+        
 
-        if (NamaBarang == null || HargaBarang == null || KategoriBarang == null || KondisiBarang == null
-                || BrandBarang == null || UkuranBarang == null || WarnaBarang == null) {
-
-        } else {
-            if (DataGambarBarangSimpan == null) {
-                System.out.println("Mengubah");
-                DB.UpdateBarang(IDbarang, NamaBarang, HargaBarang, PenjualBarang, KondisiBarang, UkuranBarang,
-                        BrandBarang, WarnaBarang, KategoriBarang, Deskripsi);
-
-            } else {
-                System.out.println("Mengubah");
-                DB.UpdateBarang(IDbarang, NamaBarang, HargaBarang, PenjualBarang, KondisiBarang, UkuranBarang,
-                        BrandBarang, WarnaBarang, KategoriBarang, Deskripsi, GambarBarang);
-
+        
+            try{
+                String x = HargaBarang.replace(".", "");
+                int test = Integer.valueOf(x);
+            }catch (Exception f){
+                error = true;
             }
+            if(error == false){
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GraphicUserInterface/KatalogManagePage.fxml"));
-            Scene scene = new Scene(loader.load());
-            Stage stage = new Stage();
-
-            stage.setScene(scene);
-            stage.setResizable(false);
-            stage.initStyle(StageStyle.TRANSPARENT);
-            stage.setTitle("Tokopaedi");
-            stage.show();
-
-            DB.DisconnectFromDataBase();
-            ((Parent) event.getSource()).getScene().getWindow().hide();
+                
+                
+                if (NamaBarang == null || HargaBarang == null || KategoriBarang == null || KondisiBarang == null
+                || BrandBarang == null || UkuranBarang == null || WarnaBarang == null) {
+                    
+                } else {
+                    if (DataGambarBarangSimpan == null) {
+                    System.out.println("Mengubah");
+                    DB.UpdateBarang(IDbarang, NamaBarang, HargaBarang, PenjualBarang, KondisiBarang, UkuranBarang,
+                    BrandBarang, WarnaBarang, KategoriBarang, Deskripsi);
+                    
+                } else {
+                    System.out.println("Mengubah");
+                    DB.UpdateBarang(IDbarang, NamaBarang, HargaBarang, PenjualBarang, KondisiBarang, UkuranBarang,
+                    BrandBarang, WarnaBarang, KategoriBarang, Deskripsi, GambarBarang);
+                    
+                }
+                
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/GraphicUserInterface/KatalogManagePage.fxml"));
+                Scene scene = new Scene(loader.load());
+                Stage stage = new Stage();
+                
+                stage.setScene(scene);
+                stage.setResizable(false);
+                stage.initStyle(StageStyle.TRANSPARENT);
+                stage.setTitle("Tokopaedi");
+                stage.show();
+                
+                DB.DisconnectFromDataBase();
+                ((Parent) event.getSource()).getScene().getWindow().hide();
+            }
+            
+            
+        }else{
+            System.out.println("error angak");
         }
 
     }
-
 }

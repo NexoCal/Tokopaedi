@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox fx:id="BaseHBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="480.0" spacing="5.0" styleClass="card" stylesheets="@StyleSheets/RecentCard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RecentCardController">
+<HBox fx:id="BaseHBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#GoToItem" prefHeight="200.0" prefWidth="480.0" spacing="5.0" styleClass="card" stylesheets="@StyleSheets/RecentCard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RecentCardController">
    <children>
       <Pane prefHeight="200.0" prefWidth="205.0" styleClass="imageborder">
          <children>

@@ -7,10 +7,15 @@ import org.sqlite.core.DB;
 import Model.Barang;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class RecentCardController {
     DatabaseModel DB = new DatabaseModel();
@@ -50,6 +55,24 @@ public class RecentCardController {
         PenjualRecent.setText(CurrentBarangData.getUser());
         RecentGambarProdukDisplay.setImage(CurrentBarangData.getGambar());
         this.ID = ID;
+    }
+
+    @FXML
+    void GoToItem(MouseEvent event) throws IOException {
+        Barang barang = new Barang();
+        barang.setID(ID);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GraphicUserInterface/KatalogPage.fxml"));
+        Scene scene = new Scene(loader.load());
+        Stage stage = new Stage();
+
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.setTitle("Tokopaedi");
+        stage.show();
+
+        ((Parent) event.getSource()).getScene().getWindow().hide();
+
     }
 
 }
