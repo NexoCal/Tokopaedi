@@ -8,12 +8,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox fx:id="BaseVBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="428.0" prefWidth="320.0" styleClass="baseBackground" stylesheets="@StyleSheets/KatalogCard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.KatalogCardController">
    <children>
       <Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="320.0" styleClass="imageBackground">
          <children>
-            <ImageView fx:id="Gambar" fitHeight="305.0" fitWidth="305.0" layoutX="8.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Gambar" fitHeight="305.0" fitWidth="305.0" layoutX="8.0" layoutY="8.0" pickOnBounds="true">
                <image>
                   <Image url="@../ImageAsset/ProfileImageBlank.png" />
                </image>

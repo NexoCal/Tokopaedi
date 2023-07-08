@@ -1,6 +1,7 @@
 package Controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -9,7 +10,10 @@ import org.sqlite.core.DB;
 
 import Model.User;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
@@ -19,6 +23,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class KatalogPageAddController implements Initializable {
 
@@ -84,7 +90,18 @@ public class KatalogPageAddController implements Initializable {
     }
 
     @FXML
-    void Batal(MouseEvent event) {
+    void Batal(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GraphicUserInterface/KatalogManagePage.fxml"));
+        Scene scene = new Scene(loader.load());
+        Stage stage = new Stage();
+
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.setTitle("Tokopaedi");
+        stage.show();
+
+        ((Parent) event.getSource()).getScene().getWindow().hide();
 
     }
 
@@ -221,7 +238,7 @@ public class KatalogPageAddController implements Initializable {
     }
 
     @FXML
-    void TambahBarang(MouseEvent event) {
+    void TambahBarang(MouseEvent event) throws IOException {
         DB.ConnectToDataBase("src/TokopaediDatabase.db");
         String NamaBarang = FieldNamaBarang.getText();
         String HargaBarang = FieldHargaBarang.getText();
@@ -241,6 +258,19 @@ public class KatalogPageAddController implements Initializable {
             e.printStackTrace();
             System.out.println(e);
         }
+        DB.DisconnectFromDataBase();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GraphicUserInterface/KatalogManagePage.fxml"));
+        Scene scene = new Scene(loader.load());
+        Stage stage = new Stage();
+
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.setTitle("Tokopaedi");
+        stage.show();
+
+        ((Parent) event.getSource()).getScene().getWindow().hide();
 
     }
 

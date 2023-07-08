@@ -26,7 +26,7 @@
                      <children>
                         <ImageView fitHeight="20.0" fitWidth="25.0" layoutX="15.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../ImageAsset/Vector%20Search.png" />
+                              <Image url="@../ImageAsset/Icon/Vector%20Search.png" />
                            </image>
                         </ImageView>
                      </children></Pane>
@@ -46,19 +46,19 @@
                   </Label>
                   <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../ImageAsset/Vector%20account.png" />
+                        <Image url="@../ImageAsset/Icon/Vector%20account.png" />
                      </image>
                   </ImageView>
                </children>
             </HBox>
             <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="1074.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../ImageAsset/Vector%20notification.png" />
+                  <Image url="@../ImageAsset/Icon/Vector%20notification.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="994.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../ImageAsset/Vector%20message.png" />
+                  <Image url="@../ImageAsset/Icon/Vector%20message.png" />
                </image>
             </ImageView>
          </children></Pane>

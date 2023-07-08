@@ -33,7 +33,7 @@
                               <Font name="Arial Bold" size="36.0" />
                            </font>
                         </Label>
-                        <Button fx:id="ButtonBeli" layoutX="14.0" layoutY="137.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="348.0" styleClass="ButtonBeli" text="Beli Sekarang" textFill="#f8f8f8">
+                        <Button fx:id="ButtonBeli" layoutX="14.0" layoutY="137.0" mnemonicParsing="false" onMouseClicked="#BeliSekarang" prefHeight="53.0" prefWidth="348.0" styleClass="ButtonBeli" text="Beli Sekarang" textFill="#f8f8f8">
                            <font>
                               <Font name="Arial" size="18.0" />
                            </font>

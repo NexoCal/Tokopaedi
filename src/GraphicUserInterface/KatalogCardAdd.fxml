@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <Pane fx:id="AddCard" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ToAddPage" prefHeight="428.0" prefWidth="320.0" styleClass="addCard" stylesheets="@StyleSheets/KatalogCard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.KatalogCardAddController">
    <children>
-      <Label layoutX="74.0" layoutY="251.0" text="Tambah Barang" textFill="#686868">
+      <Label layoutX="70.0" layoutY="257.0" text="Tambah Barang" textFill="#686868">
          <font>
-            <Font name="Arial" size="24.0" />
+            <Font name="Arial Bold" size="24.0" />
          </font>
       </Label>
+      <ImageView fitHeight="75.0" fitWidth="69.0" layoutX="126.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../ImageAsset/Icon/vector%20Add%20barang.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

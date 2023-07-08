@@ -21,6 +21,6 @@
             <Insets top="60.0" />
          </padding>
       </ScrollPane>
-      <Pane fx:id="Upper" layoutX="95.0" layoutY="15.0" prefHeight="52.0" prefWidth="1158.0" styleClass="topnav" />
+      <Pane fx:id="Upper" layoutX="90.0" layoutY="15.0" prefHeight="52.0" prefWidth="1158.0" styleClass="topnav" />
    </children>
 </AnchorPane>

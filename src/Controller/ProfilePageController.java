@@ -12,7 +12,10 @@ import Model.User;
 import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -24,6 +27,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 public class ProfilePageController implements Initializable {
@@ -382,6 +387,21 @@ public class ProfilePageController implements Initializable {
             DB.UploadImageProfile(x.getID(),imageFile);
             
         }
+    }
+
+    @FXML
+    void Back(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GraphicUserInterface/MainScreen.fxml"));
+            Scene scene = new Scene(loader.load());
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.initStyle(StageStyle.TRANSPARENT);
+            stage.setTitle("Tokopaedi");
+            stage.show();
+
+            ((Parent) event.getSource()).getScene().getWindow().hide();
     }
 
 }

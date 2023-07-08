@@ -1,0 +1,43 @@
+.topNav{
+    -fx-background-color: rgba(60, 57, 77, 1);
+    -fx-border-color: rgba(60, 57, 77, 1);
+}
+
+.Background{
+    -fx-background-color: rgba(254, 237, 230, 1);
+    -fx-border-color: rgba(254, 237, 230, 1);
+}
+
+.CardBackground{
+    -fx-background-color: rgba(248, 248, 248, 1);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 4);
+}
+
+.TabCard{
+    -fx-background-color: rgba(248, 248, 248, 1);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 4);
+
+}
+
+.ButtonPesan{
+    -fx-background-color: #3C394D;
+    -fx-background-radius: 0;
+    -fx-border-color: #000000;
+    -fx-border-radius: 0;
+
+}
+
+.spliterPane{
+    -fx-border-color: TRANSPARENT TRANSPARENT #000000 TRANSPARENT;
+}
+
+.searchiconbox{
+    -fx-background-color: rgba(254, 237, 230, 1);
+    -fx-border-color: rgba(0,0,0,1);
+
+}
+
+.CornerTrigger{
+    -fx-background-color: rgb(54, 52, 65);
+
+}
