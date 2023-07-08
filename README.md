@@ -10,7 +10,9 @@ Figma : https://www.figma.com/file/4IPJyttlbWIz2vEmfkcYQM/Tokped-kawai?type=desi
 berikut dokumentasi dari proses analisis dan perancangan tokopaedi
 
 SRS : https://docs.google.com/document/d/1nFtX4Bbx6IlKwERbaLy5h42BNfJ3i4A0/edit?usp=sharing&ouid=114595445961113058276&rtpof=true&sd=true
+
 (July, 07 2023 Updated Usecase ( User Profile ))
+(July, 08 2023 Fix Ambiguitas Usecase ( Beli Barang & Order Barang ))
 
 SDD : https://docs.google.com/document/d/1ny5dfzbVAttYfDfVqxA2w99VG4XmQl7_/edit?usp=sharing&ouid=114595445961113058276&rtpof=true&sd=true
 
