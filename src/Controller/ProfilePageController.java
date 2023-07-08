@@ -1,12 +1,13 @@
 package Controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
-import Model.Session;
 import Model.User;
 import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;
@@ -17,13 +18,20 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.util.Duration;
 
 public class ProfilePageController implements Initializable {
 
     DatabaseModel DB = new DatabaseModel();
+
+    @FXML
+    private ImageView ProfileImage;
 
     @FXML
     private Label Alamat;
@@ -94,16 +102,46 @@ public class ProfilePageController implements Initializable {
     @FXML
     private DatePicker PilihTanggal;
 
+    @FXML
+    private Button PilihGambar;
+
+    @FXML
+    private Label DetailID;
+
     private String Subject;
 
     private String [] Kelamin = {"Laki - Laki", "Perempuan", "Tidak ingin memberitahu"};
 
-    Session x = new Session();
+    User x = new User();
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         DB.ConnectToDataBase("src/TokopaediDatabase.db");
         User DataCurrentUser = DB.SelectUser(x.getID());
 
+        Integer IDint = DataCurrentUser.getID();
+        String ID = IDint.toString();
+
+        switch (ID.length()) {
+            case 1:
+                DetailID.setText("00000" + ID);
+                break;
+            case 2:
+                DetailID.setText("0000" + ID);
+                break;
+            case 3:
+                DetailID.setText("000" + ID);
+                break;
+            case 4:
+                DetailID.setText("00" + ID);
+                break;
+            case 5:
+                DetailID.setText("0" + ID);
+                break;
+            case 6:
+                DetailID.setText(ID);
+                break;
+        }
+        
         Nama.setText(DataCurrentUser.getNama());
         Username.setText(DataCurrentUser.getUsername());
         Nomor.setText(DataCurrentUser.getNomor());
@@ -111,14 +149,15 @@ public class ProfilePageController implements Initializable {
         Email.setText(DataCurrentUser.getEmail());
         JenisKelamin.setText(DataCurrentUser.getJenisKelamin());
         TanggalLahir.setText(DataCurrentUser.getTanggalLahir());
+        if(DataCurrentUser.getGambarProfile() != null){
+            ProfileImage.setImage(DataCurrentUser.getGambarProfile());
+        }
         PilihKelamin.getItems().addAll(Kelamin);
 
         PilihKelamin.setVisible(false);
         Replacement.setVisible(false);
         PilihTanggal.setVisible(false);
 
-
-        
     }
 
     @FXML
@@ -327,6 +366,22 @@ public class ProfilePageController implements Initializable {
         PilihTanggal.setVisible(false);
         
 
+    }
+
+    @FXML
+    void PilihGambarFile(MouseEvent event) throws SQLException {
+        FileChooser chooser = new FileChooser();
+        chooser.getExtensionFilters().addAll(
+            new ExtensionFilter("Image Files (.png, .jpg)", "*.png", "*.jpg")
+        );
+
+        File imageFile = chooser.showOpenDialog(null);
+        if (imageFile != null){
+            Image newprofileImage = new Image(imageFile.toPath().toString());
+            ProfileImage.setImage(newprofileImage);
+            DB.UploadImageProfile(x.getID(),imageFile);
+            
+        }
     }
 
 }

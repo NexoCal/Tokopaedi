@@ -1,35 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@StyleSheets/MainScreenStyleSheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainScreenController">
    <children>
-      <Pane layoutY="50.0" prefHeight="750.0" prefWidth="1280.0">
+      <Pane prefHeight="65.0" prefWidth="1280.0" styleClass="topnav">
          <children>
-            <ScrollPane prefHeight="750.0" prefWidth="1280.0">
-               <content>
-                  <Pane prefHeight="837.0" prefWidth="1265.0">
+            <HBox layoutX="321.0" layoutY="16.0" prefHeight="33.0" prefWidth="638.0">
+               <children>
+                  <TextField prefHeight="33.0" prefWidth="589.0" promptText="Mau beli apa?" styleClass="searchbox">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font></TextField>
+                  <Pane prefHeight="200.0" prefWidth="49.0" styleClass="searchiconbox">
                      <children>
-                        <ScrollPane prefHeight="200.0" prefWidth="1280.0">
-                           <content>
-                              <HBox fx:id="RecentTab" prefHeight="180.0" prefWidth="4800.0" spacing="10.0">
-                                 <children>
-                                    <Pane prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: black;" />
-                                    <Pane prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: black;" />
-                                 </children>
-                              </HBox>
-                           </content>
-                        </ScrollPane>
-                        <Button fx:id="btntest" layoutX="588.0" layoutY="406.0" mnemonicParsing="false" onMouseClicked="#Switch" text="Button" />
-                     </children>
-                  </Pane>
-               </content>
-            </ScrollPane>
-         </children>
-      </Pane>
+                        <ImageView fitHeight="20.0" fitWidth="25.0" layoutX="15.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ImageAsset/Vector%20Search.png" />
+                           </image>
+                        </ImageView>
+                     </children></Pane>
+               </children>
+            </HBox>
+            <ImageView fitHeight="25.0" fitWidth="141.0" layoutX="128.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ImageAsset/Tokopaedi.png" />
+               </image>
+            </ImageView>
+            <HBox fx:id="Userdetail" layoutX="1098.0" layoutY="20.0" onMouseClicked="#MenuTrigger" prefHeight="25.0" prefWidth="110.0" spacing="5.0">
+               <children>
+                  <Label fx:id="NamaUser" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="99.0" text="Label" textFill="WHITESMOKE">
+                     <font>
+                        <Font name="Arial Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ImageAsset/Vector%20account.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="1074.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ImageAsset/Vector%20notification.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="994.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ImageAsset/Vector%20message.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
+      <ScrollPane layoutY="65.0" prefHeight="756.0" prefWidth="1320.0" styleClass="scrollBackground">
+         <content>
+            <VBox fx:id="VboxCardContainer" fillWidth="false" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="738.0" prefWidth="1280.0" spacing="15.0" styleClass="background">
+               <padding>
+                  <Insets bottom="26.0" left="61.0" right="81.0" top="26.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <Pane prefHeight="67.0" prefWidth="66.0" styleClass="CornerTrigger" />
+      <Pane fx:id="UserMenu" layoutX="1129.0" layoutY="66.0" prefHeight="118.0" prefWidth="119.0" />
    </children>
 </AnchorPane>

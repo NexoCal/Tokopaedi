@@ -27,3 +27,9 @@
     -fx-background-radius: 0;
     -fx-border-radius: 0;
 }
+
+.imageBackground{
+    -fx-border-color: #000000;
+    -fx-border-width: 2;
+    -fx-background-color: #e0e0e0;
+}

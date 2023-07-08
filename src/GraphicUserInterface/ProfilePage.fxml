@@ -17,12 +17,12 @@
          <children>
             <Pane layoutX="77.0" layoutY="158.0" prefHeight="485.0" prefWidth="385.0" styleClass="PhotoCard">
                <children>
-                  <ImageView fitHeight="325.0" fitWidth="325.0" layoutX="30.0" layoutY="32.0" pickOnBounds="true">
+                  <ImageView fx:id="ProfileImage" fitHeight="325.0" fitWidth="325.0" layoutX="30.0" layoutY="32.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../../../../../../Music/20221008_114230.jpg" />
+                        <Image url="@../ImageAsset/ProfileImageBlank.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="30.0" layoutY="396.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="325.0" styleClass="PhotoButton" text="Pilih Gambar">
+                  <Button fx:id="PilihGambar" layoutX="30.0" layoutY="396.0" mnemonicParsing="false" onMouseClicked="#PilihGambarFile" prefHeight="60.0" prefWidth="325.0" styleClass="PhotoButton" text="Pilih Gambar">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="24.0" />
                      </font>
@@ -36,7 +36,7 @@
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="56.0" layoutY="8.0" prefHeight="23.0" prefWidth="100.0" text="0000001">
+                  <Label fx:id="DetailID" alignment="CENTER" layoutX="56.0" layoutY="8.0" prefHeight="23.0" prefWidth="100.0" text="0000001">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>

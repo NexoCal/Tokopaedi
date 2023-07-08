@@ -1,0 +1,8 @@
+.card{
+    -fx-background-color: #ffffff;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 4);
+}
+
+.imageborder{
+    -fx-border-color: TRANSPARENT #000000 #000000 TRANSPARENT;
+}

@@ -1,7 +1,9 @@
 package Model;
 
+import javafx.scene.image.Image;
+
 public class User {
-    int ID;
+    static int ID = 4;
     String Nama;
     String Username;
     String Nomor;
@@ -10,6 +12,7 @@ public class User {
     String Email;
     String JenisKelamin;
     String TanggalLahir;
+    Image GambarProfile;
 
     public User(){
 
@@ -96,5 +99,13 @@ public class User {
 
     public void setEmail(String Email) {
         this.Email = Email;
+    }
+
+    public Image getGambarProfile() {
+        return this.GambarProfile;
+    }
+
+    public void setGambarProfile(Image GambarProfile) {
+        this.GambarProfile = GambarProfile;
     }
 }

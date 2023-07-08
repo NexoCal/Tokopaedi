@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox fx:id="BaseVBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="428.0" prefWidth="320.0" styleClass="baseBackground" stylesheets="@StyleSheets/KatalogCard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.KatalogCardController">
+   <children>
+      <Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="320.0" styleClass="imageBackground">
+         <children>
+            <ImageView fx:id="Gambar" fitHeight="305.0" fitWidth="305.0" layoutX="8.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ImageAsset/ProfileImageBlank.png" />
+               </image>
+            </ImageView>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </Pane>
+      <Label fx:id="Nama" alignment="BOTTOM_LEFT" prefHeight="66.0" prefWidth="320.0" text="Nama">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="Ukuran" alignment="TOP_LEFT" prefHeight="69.0" prefWidth="320.0" text="Ukuran" textFill="#515151">
+         <font>
+            <Font name="Arial" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="Harga" alignment="BOTTOM_LEFT" prefHeight="41.0" prefWidth="320.0" text="Harga">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</VBox>

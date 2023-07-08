@@ -4,8 +4,7 @@ package Controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import Model.Session;
+import Model.User;
 import javafx.util.Duration;
 import javafx.animation.FadeTransition;
 import javafx.animation.FillTransition;
@@ -361,7 +360,7 @@ public class LoginScreenController implements Initializable {
             Database.DisconnectFromDataBase();
 
         } else if (Database.AuthenticationBySandiDanNama(Sandi, Nama)) {
-            Session x = new Session();
+            User x = new User();
             x.setID(Database.getID(Sandi, Nama));
             Database.DisconnectFromDataBase();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/GraphicUserInterface/MainScreen.fxml"));

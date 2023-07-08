@@ -27,7 +27,7 @@
 }
 
 .fieldTextArea{
-    -fx-border-color: #3C394D ;
+    -fx-border-color: #3C394D #3C394D #3C394D #3C394D ;
     -fx-background-color: #ffffff;
 }
 

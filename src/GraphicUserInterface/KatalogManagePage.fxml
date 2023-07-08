@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@StyleSheets/KatalogManagePage.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.KatalogManageController">
+   <children>
+      <Pane prefHeight="800.0" prefWidth="60.0" styleClass="sidenav" />
+      <ScrollPane layoutX="60.0" prefHeight="800.0" prefWidth="1240.0" styleClass="background">
+         <content>
+            <VBox fx:id="VboxContainer" maxHeight="1.7976931348623157E308" prefHeight="797.0" prefWidth="1220.0" spacing="19.0" styleClass="background">
+               <padding>
+                  <Insets bottom="23.0" left="51.0" right="51.0" top="23.0" />
+               </padding>
+            </VBox>
+         </content>
+         <padding>
+            <Insets top="60.0" />
+         </padding>
+      </ScrollPane>
+      <Pane fx:id="Upper" layoutX="95.0" layoutY="15.0" prefHeight="52.0" prefWidth="1158.0" styleClass="topnav" />
+   </children>
+</AnchorPane>

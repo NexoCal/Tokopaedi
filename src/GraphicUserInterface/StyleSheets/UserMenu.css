@@ -1,0 +1,10 @@
+.background{
+    -fx-border-color: #3C394D;
+    -fx-background-color: #ffffff;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+}
+
+.SpliterPane{
+    -fx-border-color: TRANSPARENT TRANSPARENT TRANSPARENT #3C394D;
+}

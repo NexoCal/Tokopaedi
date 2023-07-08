@@ -1,0 +1,18 @@
+.imageBackground{
+    -fx-background-color: rgba(217, 217, 217, 1);
+    -fx-border-color: TRANSPARENT #7a7a7a #7a7a7a TRANSPARENT;
+    -fx-border-width: 2;
+}
+
+.baseBackground{
+    -fx-background-color: #ffffff;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 4);
+
+}
+
+.addCard{
+    -fx-background-color: TRANSPARENT;
+    -fx-border-color: #686868;
+    -fx-border-style: dashed;
+    -fx-border-width: 4;
+}

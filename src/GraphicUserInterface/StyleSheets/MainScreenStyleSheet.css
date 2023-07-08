@@ -1,0 +1,39 @@
+.topnav{
+    -fx-background-color: rgba(60, 57, 77, 1);
+    -fx-border-color: rgba(60, 57, 77, 1);
+}
+
+.background{
+    -fx-background-color: rgba(254, 237, 230, 1);
+    -fx-border-color: rgba(254, 237, 230, 1);
+}
+
+.scrollBackground{
+    -fx-border-color: #3C394D #FEEDE6 #FEEDE6 #3C394D;
+    -fx-background-color: rgba(60, 57, 77, 1);
+
+}
+
+.backgroundCard{
+    -fx-background-color: rgba(248, 248, 248, 1);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 4);
+}
+
+.CornerTrigger{
+    -fx-background-color: rgb(54, 52, 65);
+
+}
+
+.searchiconbox{
+    -fx-background-color: rgba(254, 237, 230, 1);
+    -fx-border-color: rgba(0,0,0,1);
+
+}
+
+.searchbox{
+    -fx-border-color: rgba(0,0,0,1);
+    -fx-border-radius: 0;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 0;
+
+}

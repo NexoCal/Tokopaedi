@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="Card" alignment="CENTER_LEFT" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#BukaKatalogPage" prefHeight="214.0" prefWidth="160.0" styleClass="Card" stylesheets="@StyleSheets/RecommendCard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CardRecommendController">
+   <children>
+      <ImageView fx:id="GambarProduk" fitHeight="160.0" fitWidth="160.0" pickOnBounds="true">
+         <image>
+            <Image url="@../ImageAsset/ProfileImageBlank.png" />
+         </image>
+      </ImageView>
+      <VBox alignment="BOTTOM_LEFT" prefHeight="54.0" prefWidth="163.0">
+         <children>
+            <Label fx:id="NamaBarang" alignment="BOTTOM_LEFT" prefHeight="19.0" prefWidth="160.0" text="Nama Barang" textOverrun="WORD_ELLIPSIS" wrapText="true">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="UkuranBarang" alignment="TOP_LEFT" prefHeight="20.0" prefWidth="162.0" text="Ukuran">
+               <font>
+                  <Font name="Arial Italic" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="HargaBarang" prefHeight="21.0" prefWidth="160.0" text="Harga">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</VBox>

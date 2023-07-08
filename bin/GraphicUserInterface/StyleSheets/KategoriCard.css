@@ -1,0 +1,11 @@
+.Shade{
+    -fx-background-color: linear-gradient(to top, rgba(0,0,0,0.7120098039215687) 0%, rgba(0,0,0,0.5355392156862745) 35%, rgba(0,0,0,0.33665966386554624) 100%);
+}
+
+.ButtonKategori{
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: rgba(255,255,255,1);
+    -fx-border-color: TRANSPARENT #000000 #000000 TRANSPARENT;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0.2, 0, 2);
+}
