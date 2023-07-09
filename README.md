@@ -19,6 +19,11 @@ SDD : https://docs.google.com/document/d/1ny5dfzbVAttYfDfVqxA2w99VG4XmQl7_/edit?
 ## Perangkat Lunak Pihak Ke-3 Untuk Mengakses Basis Data
 SQLite : https://sqlitebrowser.org/dl/
 
+## Demo
+
+Slide : https://www.canva.com/design/DAFoIRFDmgI/aCoHQnkhGRL0BilH-JneUA/edit?utm_content=DAFoIRFDmgI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+Youtube : https://youtu.be/-VejTM3kabg
+
 ## Pesan Singkat
 
 Aplikasi Desktop ini dirancang dan dibuat untuk tugas expo kampus Universitas Islam Indonesia - Fakultas Teknik Industri
