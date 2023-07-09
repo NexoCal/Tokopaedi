@@ -92,7 +92,7 @@ public class MainScreenController implements Initializable {
             loader.setLocation(getClass().getResource("/GraphicUserInterface/RecommendedTabCard.fxml"));
             VBox Base = loader.load();
             RecommendedTabCardController recommendedTabCardController = loader.getController();
-            recommendedTabCardController.setGridbyDaftarBarang(DB.DaftarBarang());
+            recommendedTabCardController.setGridbyIDs(IDs);
             VboxCardContainer.getChildren().add(Base);
         } catch (IOException e) {
             // TODO Auto-generated catch block

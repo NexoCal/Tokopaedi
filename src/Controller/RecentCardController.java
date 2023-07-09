@@ -52,7 +52,7 @@ public class RecentCardController {
         Barang CurrentBarangData = DB.SelectBarang(ID);
 
         RecentNamaProdukDisplay.setText(CurrentBarangData.getNamaBarang());
-        Detail.setText(CurrentBarangData.getUkuranBarang()+"/"+CurrentBarangData.getWarnaBarang());
+        DetailRecent.setText(CurrentBarangData.getUkuranBarang()+"/"+CurrentBarangData.getWarnaBarang());
         RecentHargaProdukDisplay.setText("Rp "+CurrentBarangData.getHargaBarang());
         PenjualRecent.setText(CurrentBarangData.getUser());
         RecentGambarProdukDisplay.setImage(CurrentBarangData.getGambar());

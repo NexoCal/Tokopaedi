@@ -41,7 +41,7 @@ public class CardRecommendController {
         Barang CurrentBarangData = DB.SelectBarang(ID);
 
         NamaBarang.setText(CurrentBarangData.getNamaBarang());
-        UkuranBarang.setText(CurrentBarangData.getUkuranBarang());
+        UkuranBarang.setText("Ukuran/Berat "+CurrentBarangData.getUkuranBarang());
         HargaBarang.setText("Rp "+CurrentBarangData.getHargaBarang());
         GambarProduk.setImage(CurrentBarangData.getGambar());
         this.ID = ID;
@@ -49,7 +49,7 @@ public class CardRecommendController {
 
     public void setDataBarang(Barang barang){
         NamaBarang.setText(barang.getNamaBarang());
-        UkuranBarang.setText(barang.getUkuranBarang());
+        UkuranBarang.setText("Ukuran/Berat "+barang.getUkuranBarang());
         HargaBarang.setText("Rp "+barang.getHargaBarang());
         GambarProduk.setImage(barang.getGambar());
         this.ID = barang.getID();
