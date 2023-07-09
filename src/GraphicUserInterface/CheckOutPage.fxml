@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@StyleSheets/CheckOutPage.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CheckOutPageController">
@@ -252,7 +253,7 @@
          <children>
             <HBox prefHeight="108.0" prefWidth="1243.0">
                <children>
-                  <Label alignment="BOTTOM_LEFT" prefHeight="68.0" prefWidth="1223.0" text="Selamat, Barangmu berhasil di pesan! ">
+                  <Label alignment="BOTTOM_LEFT" prefHeight="64.0" prefWidth="1220.0" text="Selamat, Barangmu berhasil di pesan! ">
                      <font>
                         <Font name="Arial Bold" size="27.0" />
                      </font>
@@ -342,7 +343,7 @@
                   <Insets />
                </VBox.margin>
                <padding>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
                </padding>
             </HBox>
          </children>
@@ -352,5 +353,18 @@
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Button>
+      <Pane fx:id="Overlay" layoutX="-1280.0" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #000000; -fx-opacity: 0.2;" />
+      <Pane fx:id="Tail" layoutX="-1280.0" layoutY="422.0" prefHeight="40.0" prefWidth="1280.0" style="-fx-background-color: FCC045;" />
+      <Pane fx:id="Body" layoutX="-1280.0" layoutY="342.0" prefHeight="200.0" prefWidth="1280.0" style="-fx-background-color: FCC045;">
+         <children>
+            <ImageView fitHeight="206.0" fitWidth="915.0" layoutX="187.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ImageAsset/Notif%20transaksi%20berhasil.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fcc045" height="200.0" layoutX="138.0" stroke="TRANSPARENT" strokeType="INSIDE" width="200.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fcc045" height="200.0" layoutX="1037.0" stroke="TRANSPARENT" strokeType="INSIDE" width="150.0" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
