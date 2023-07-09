@@ -157,8 +157,24 @@ public class MainScreenController implements Initializable {
     }
 
     @FXML
-    void Search(MouseEvent event) {
+    void Search(MouseEvent event) throws IOException {
+        SearchListener temp = new SearchListener();
+            String Searched = SearchBar.getText();
+            temp.setSearch(Searched);
 
+            Parent root = FXMLLoader.load(getClass().getResource("/GraphicUserInterface/SearchResultPage.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.initStyle(StageStyle.TRANSPARENT);
+            stage.setTitle("Tokopaedi");
+            stage.show();
+
+            new SlideInDown(root).setSpeed(2.5).play();
+
+            ((Parent) event.getSource()).getScene().getWindow().hide();
     }
 
 }

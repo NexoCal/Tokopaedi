@@ -30,11 +30,15 @@
                   </ImageView>
                </children>
             </HBox>
-            <ImageView fitHeight="25.0" fitWidth="141.0" layoutX="120.0" layoutY="21.0" onMouseClicked="#GoToMain" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../ImageAsset/Tokopaedi.png" />
-               </image>
-            </ImageView>
+            <Pane layoutX="120.0" layoutY="21.0" onMouseClicked="#GoToMain">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ImageAsset/Tokopaedi.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
             <Pane fx:id="Search" layoutX="906.0" layoutY="16.0" onMouseClicked="#Search" prefHeight="33.0" prefWidth="49.0" styleClass="searchiconbox">
                <children>
                   <ImageView fitHeight="20.0" fitWidth="25.0" layoutX="15.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
