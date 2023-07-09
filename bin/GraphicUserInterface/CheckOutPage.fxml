@@ -39,11 +39,6 @@
          <children>
             <Pane layoutX="61.0" layoutY="52.0" prefHeight="633.0" prefWidth="1158.0" styleClass="CardBackground">
                <children>
-                  <Button fx:id="PesanSekarang" layoutX="773.0" layoutY="544.0" mnemonicParsing="false" onMouseClicked="#Pesan" prefHeight="53.0" prefWidth="348.0" styleClass="ButtonPesan" text="Pesan Sekarang" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="18.0" />
-                     </font>
-                  </Button>
                   <HBox prefHeight="633.0" prefWidth="1158.0" spacing="31.0">
                      <children>
                         <VBox prefHeight="579.0" prefWidth="390.0">
@@ -89,7 +84,7 @@
                                                 <Font name="Arial" size="18.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="BOTTOM_RIGHT" prefHeight="69.0" prefWidth="204.0" text="Rp 0">
+                                          <Label fx:id="Diskon" alignment="BOTTOM_RIGHT" prefHeight="69.0" prefWidth="204.0" text="Rp 0">
                                              <font>
                                                 <Font name="Arial" size="18.0" />
                                              </font>
@@ -103,7 +98,7 @@
                                                 <Font name="Arial" size="18.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="BOTTOM_RIGHT" prefHeight="61.0" prefWidth="202.0" text="Rp 0">
+                                          <Label fx:id="Pengiriman" alignment="BOTTOM_RIGHT" prefHeight="61.0" prefWidth="202.0" text="Rp 0">
                                              <font>
                                                 <Font name="Arial" size="18.0" />
                                              </font>
@@ -233,6 +228,11 @@
                         <Insets bottom="37.0" left="37.0" right="37.0" top="27.0" />
                      </padding>
                   </HBox>
+                  <Button fx:id="PesanSekarang" layoutX="773.0" layoutY="544.0" mnemonicParsing="false" onMouseClicked="#Pesan" prefHeight="53.0" prefWidth="348.0" styleClass="ButtonPesan" text="Pesan Sekarang" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Button>
                </children>
                <padding>
                   <Insets bottom="27.0" left="37.0" right="37.0" top="27.0" />
@@ -240,5 +240,117 @@
             </Pane>
          </children>
       </Pane>
+      <Pane fx:id="PesanDiTerima" layoutY="800.0" prefHeight="800.0" prefWidth="1280.0" styleClass="Background">
+         <children>
+            <Circle fill="#fce6df" layoutX="172.0" layoutY="848.0" radius="432.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Circle fill="#fce6df" layoutX="-54.0" layoutY="214.0" radius="206.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Circle fill="#fce6df" layoutX="1229.0" layoutY="726.0" radius="123.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Circle fill="#fce6df" layoutX="1218.0" layoutY="215.0" radius="158.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+         </children>
+      </Pane>
+      <VBox fx:id="CardPesanDiterima" layoutX="20.0" layoutY="833.0" prefHeight="741.0" prefWidth="1240.0" styleClass="CardBackground">
+         <children>
+            <HBox prefHeight="108.0" prefWidth="1243.0">
+               <children>
+                  <Label alignment="BOTTOM_LEFT" prefHeight="68.0" prefWidth="1223.0" text="Selamat, Barangmu berhasil di pesan! ">
+                     <font>
+                        <Font name="Arial Bold" size="27.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="742.0" prefWidth="1243.0" spacing="10.0">
+               <children>
+                  <ImageView fx:id="PesanDiTerimaGambar" fitHeight="659.0" fitWidth="659.0" pickOnBounds="true" HBox.hgrow="ALWAYS">
+                     <image>
+                        <Image url="@../ImageAsset/ProfileImageBlank.png" />
+                     </image>
+                  </ImageView>
+                  <VBox prefHeight="659.0" prefWidth="580.0">
+                     <children>
+                        <Label alignment="TOP_LEFT" prefHeight="48.0" prefWidth="550.0" text="Detail Pembayaran">
+                           <font>
+                              <Font name="Arial Bold" size="26.0" />
+                           </font>
+                        </Label>
+                        <HBox prefHeight="60.0" prefWidth="534.0">
+                           <children>
+                              <Label prefHeight="97.0" prefWidth="267.0" text="Harga Barang">
+                                 <font>
+                                    <Font name="Arial Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="PesanDiTerimaHarga" alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="264.0" text="Rp 0">
+                                 <font>
+                                    <Font name="Arial Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="60.0" prefWidth="534.0">
+                           <children>
+                              <Label prefHeight="60.0" prefWidth="544.0" text="Diskon">
+                                 <font>
+                                    <Font name="Arial Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="PesanDiTerimaDiskon" alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="544.0" text="Rp 0">
+                                 <font>
+                                    <Font name="Arial Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="60.0" prefWidth="534.0" styleClass="spliterPane">
+                           <children>
+                              <Label prefHeight="60.0" prefWidth="544.0" text="Biaya Pengiriman">
+                                 <font>
+                                    <Font name="Arial Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="PesanDiTerimaPengiriman" alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="544.0" text="Rp 0">
+                                 <font>
+                                    <Font name="Arial Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="60.0" prefWidth="534.0">
+                           <children>
+                              <Label prefHeight="60.0" prefWidth="544.0" text="Total">
+                                 <font>
+                                    <Font name="Arial Bold" size="30.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="PesanDiTerimaTotal" alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="544.0" text="Rp 0">
+                                 <font>
+                                    <Font name="Arial Bold" size="30.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="18.0" left="8.0" right="8.0" top="28.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+      <Button fx:id="Lanjutberburu" layoutX="709.0" layoutY="1489.0" mnemonicParsing="false" onMouseClicked="#BackToMain" prefHeight="64.0" prefWidth="530.0" styleClass="ButtonPesan" text="Lanjut mencari harta karun!" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
