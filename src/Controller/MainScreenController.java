@@ -7,15 +7,25 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import Model.Barang;
+import Model.SearchListener;
 import Model.User;
+import animatefx.animation.SlideInDown;
+import animatefx.animation.SlideInRight;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class MainScreenController implements Initializable {
     DatabaseModel DB = new DatabaseModel();
@@ -36,6 +46,12 @@ public class MainScreenController implements Initializable {
 
     @FXML
     private Pane UserMenu;
+
+    @FXML
+    private Pane Search;
+
+    @FXML
+    private TextField SearchBar;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -96,7 +112,7 @@ public class MainScreenController implements Initializable {
         return temp;
     }
 
-    private List<Integer> GetIDs(){
+    private List<Integer> GetIDs() {
         DB.ConnectToDataBase("src/TokopaediDatabase.db");
         List<Integer> IDs = DB.SelectAllID();
         return IDs;
@@ -114,6 +130,34 @@ public class MainScreenController implements Initializable {
             UserMenu.getChildren().add(Menu);
             MenuOn = true;
         }
+
+    }
+
+    @FXML
+    void EnterSearch(KeyEvent event) throws IOException {
+        if (event.getCode() == KeyCode.ENTER) {
+            SearchListener temp = new SearchListener();
+            String Searched = SearchBar.getText();
+            temp.setSearch(Searched);
+
+            Parent root = FXMLLoader.load(getClass().getResource("/GraphicUserInterface/SearchResultPage.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.initStyle(StageStyle.TRANSPARENT);
+            stage.setTitle("Tokopaedi");
+            stage.show();
+
+            new SlideInDown(root).setSpeed(2.5).play();
+
+            ((Parent) event.getSource()).getScene().getWindow().hide();
+        }
+    }
+
+    @FXML
+    void Search(MouseEvent event) {
 
     }
 

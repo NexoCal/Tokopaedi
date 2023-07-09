@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@StyleSheets/SearchResultPage.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SearchPageController">
+   <children>
+      <Pane prefHeight="65.0" prefWidth="1280.0" styleClass="topNav">
+         <children>
+            <HBox fx:id="Userdetail" layoutX="1099.0" layoutY="20.0" onMouseClicked="#MenuTrigger" prefHeight="25.0" prefWidth="110.0" spacing="5.0">
+               <children>
+                  <Label fx:id="NamaUser" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="99.0" text="Label" textFill="WHITESMOKE">
+                     <font>
+                        <Font name="Arial Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ImageAsset/Icon/Vector%20account.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <ImageView fitHeight="25.0" fitWidth="141.0" layoutX="120.0" layoutY="21.0" onMouseClicked="#GoToMain" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ImageAsset/Tokopaedi.png" />
+               </image>
+            </ImageView>
+            <Pane fx:id="Search" layoutX="906.0" layoutY="16.0" onMouseClicked="#Search" prefHeight="33.0" prefWidth="49.0" styleClass="searchiconbox">
+               <children>
+                  <ImageView fitHeight="20.0" fitWidth="25.0" layoutX="15.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ImageAsset/Icon/Vector%20Search.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <TextField fx:id="SearchBar" layoutX="317.0" layoutY="16.0" onKeyPressed="#EnterSearch" prefHeight="33.0" prefWidth="589.0" promptText="Mau beli apa?" styleClass="searchbox">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </TextField>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="1071.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ImageAsset/Icon/Vector%20notification.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="991.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ImageAsset/Icon/Vector%20message.png" />
+               </image>
+            </ImageView>
+            <Pane prefHeight="65.0" prefWidth="65.0" styleClass="CornerTrigger" />
+         </children></Pane>
+      <ScrollPane layoutY="65.0" prefHeight="735.0" prefWidth="1300.0" styleClass="ScrollBackground">
+         <content>
+            <VBox fx:id="VboxConatiner" alignment="TOP_CENTER" prefHeight="735.0" prefWidth="1280.0" styleClass="Background">
+               <padding>
+                  <Insets left="61.0" right="61.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <Pane fx:id="NotifkasiNoResult" layoutX="483.0" layoutY="376.0" prefHeight="65.0" prefWidth="326.0" styleClass="NotifNoResult">
+         <children>
+            <Label layoutX="27.0" layoutY="19.0" text="Barang tidak ditemukan" textFill="#3c394d">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="UserMenu" layoutX="1126.0" layoutY="67.0" prefHeight="118.0" prefWidth="119.0" />
+   </children>
+</AnchorPane>

@@ -5,8 +5,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import animatefx.animation.AnimationFX;
 
-import org.sqlite.core.DB;
 
 import Model.User;
 import javafx.fxml.FXML;

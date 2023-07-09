@@ -18,11 +18,11 @@
          <children>
             <HBox layoutX="321.0" layoutY="16.0" prefHeight="33.0" prefWidth="638.0">
                <children>
-                  <TextField prefHeight="33.0" prefWidth="589.0" promptText="Mau beli apa?" styleClass="searchbox">
+                  <TextField fx:id="SearchBar" onKeyPressed="#EnterSearch" prefHeight="33.0" prefWidth="589.0" promptText="Mau beli apa?" styleClass="searchbox">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font></TextField>
-                  <Pane prefHeight="200.0" prefWidth="49.0" styleClass="searchiconbox">
+                  <Pane fx:id="Search" onMouseClicked="#Search" prefHeight="200.0" prefWidth="49.0" styleClass="searchiconbox">
                      <children>
                         <ImageView fitHeight="20.0" fitWidth="25.0" layoutX="15.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                            <image>

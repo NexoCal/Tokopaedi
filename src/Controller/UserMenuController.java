@@ -2,6 +2,7 @@ package Controller;
 
 import java.io.IOException;
 
+import animatefx.animation.SlideInRight;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,8 +20,8 @@ public class UserMenuController {
 
     @FXML
     void GoToKatalogManagement(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GraphicUserInterface/KatalogManagePage.fxml"));
-        Scene scene = new Scene(loader.load());
+        Parent root = FXMLLoader.load(getClass().getResource("/GraphicUserInterface/KatalogManagePage.fxml"));
+        Scene scene = new Scene(root);
         Stage stage = new Stage();
 
         stage.setScene(scene);
@@ -28,6 +29,8 @@ public class UserMenuController {
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.setTitle("Tokopaedi");
         stage.show();
+
+        new SlideInRight(root).setSpeed(1.7).play();;
 
         ((Parent) event.getSource()).getScene().getWindow().hide();
 
@@ -35,8 +38,8 @@ public class UserMenuController {
 
     @FXML
     void GoToProfile(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GraphicUserInterface/ProfilePage.fxml"));
-        Scene scene = new Scene(loader.load());
+        Parent root = FXMLLoader.load(getClass().getResource("/GraphicUserInterface/ProfilePage.fxml"));
+        Scene scene = new Scene(root);
         Stage stage = new Stage();
 
         stage.setScene(scene);
@@ -44,6 +47,8 @@ public class UserMenuController {
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.setTitle("Tokopaedi");
         stage.show();
+
+        new SlideInRight(root).setSpeed(1.7).play();
 
         ((Parent) event.getSource()).getScene().getWindow().hide();
     }

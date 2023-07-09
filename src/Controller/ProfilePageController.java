@@ -9,6 +9,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import Model.User;
+import animatefx.animation.ZoomIn;
 import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
@@ -391,15 +392,17 @@ public class ProfilePageController implements Initializable {
 
     @FXML
     void Back(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GraphicUserInterface/MainScreen.fxml"));
-            Scene scene = new Scene(loader.load());
-            Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/GraphicUserInterface/MainScreen.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
 
             stage.setScene(scene);
             stage.setResizable(false);
             stage.initStyle(StageStyle.TRANSPARENT);
             stage.setTitle("Tokopaedi");
             stage.show();
+
+            new ZoomIn(root).setSpeed(2.2).play();
 
             ((Parent) event.getSource()).getScene().getWindow().hide();
     }

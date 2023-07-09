@@ -1,0 +1,5 @@
+.background{
+    -fx-background-color: #ffffff;
+    -fx-border-color: TRANSPARENT TRANSPARENT #bbbbbb TRANSPARENT;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 3);
+}

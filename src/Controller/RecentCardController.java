@@ -5,6 +5,8 @@ import java.io.IOException;
 import org.sqlite.core.DB;
 
 import Model.Barang;
+import animatefx.animation.FadeIn;
+import animatefx.animation.FadeInDownBig;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -61,8 +63,8 @@ public class RecentCardController {
     void GoToItem(MouseEvent event) throws IOException {
         Barang barang = new Barang();
         barang.setID(ID);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GraphicUserInterface/KatalogPage.fxml"));
-        Scene scene = new Scene(loader.load());
+        Parent root = FXMLLoader.load(getClass().getResource("/GraphicUserInterface/KatalogPage.fxml"));
+        Scene scene = new Scene(root);
         Stage stage = new Stage();
 
         stage.setScene(scene);
@@ -70,6 +72,8 @@ public class RecentCardController {
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.setTitle("Tokopaedi");
         stage.show();
+
+        // new FadeIn(root).setSpeed(4.0).play();
 
         ((Parent) event.getSource()).getScene().getWindow().hide();
 

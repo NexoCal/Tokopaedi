@@ -154,7 +154,7 @@
                         </HBox>
                      </children>
                   </Pane>
-                  <ImageView fx:id="Gambar" fitHeight="359.0" fitWidth="359.0" layoutX="14.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="Gambar" fitHeight="359.0" fitWidth="359.0" layoutX="14.0" layoutY="16.0" pickOnBounds="true" />
                   <VBox alignment="BOTTOM_CENTER" layoutX="14.0" layoutY="375.0" prefHeight="186.0" prefWidth="359.0" spacing="15.0">
                      <children>
                         <HBox prefHeight="50.0" prefWidth="212.0">

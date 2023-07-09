@@ -3,7 +3,8 @@ package Controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
+import animatefx.animation.SlideInRight;
+import animatefx.animation.ZoomIn;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -44,9 +45,9 @@ public class KatalogManageController implements Initializable {
 
     @FXML
     void Back(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GraphicUserInterface/MainScreen.fxml"));
-            Scene scene = new Scene(loader.load());
-            Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/GraphicUserInterface/MainScreen.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
 
             stage.setScene(scene);
             stage.setResizable(false);
@@ -54,8 +55,10 @@ public class KatalogManageController implements Initializable {
             stage.setTitle("Tokopaedi");
             stage.show();
 
+            new ZoomIn(root).setSpeed(2.2).play();
+
             ((Parent) event.getSource()).getScene().getWindow().hide();
-    
+            
     }
 
 }

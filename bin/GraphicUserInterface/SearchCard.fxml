@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<HBox fx:id="BaseHBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="1158.0" styleClass="background" stylesheets="@StyleSheets/SearchCard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SearchCardController">
+   <children>
+      <ImageView fx:id="Gambar" fitHeight="258.0" fitWidth="273.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../ImageAsset/ProfileImageBlank.png" />
+         </image>
+      </ImageView>
+      <VBox prefHeight="260.0" prefWidth="906.0">
+         <children>
+            <Label fx:id="Nama" alignment="TOP_LEFT" prefHeight="85.0" prefWidth="878.0" text="Phi Mind Maker 28| Lokal sdas asdasd eawqdas dwqwqwdqwd dsadasdawqsdqwdsad" wrapText="true">
+               <font>
+                  <Font name="Arial Bold" size="26.0" />
+               </font>
+            </Label>
+            <Label prefHeight="17.0" prefWidth="900.0" text="Penjual">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="Penjual" alignment="TOP_LEFT" prefHeight="42.0" prefWidth="838.0" text="Admin">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <Label prefHeight="39.0" prefWidth="878.0" text="Kategori">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="Kategori" alignment="TOP_LEFT" prefHeight="46.0" prefWidth="838.0" text="Admin">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="Harga" alignment="BOTTOM_LEFT" prefHeight="59.0" prefWidth="838.0" text="Rp 4.999.999">
+               <font>
+                  <Font name="Arial Bold" size="36.0" />
+               </font>
+            </Label>
+         </children>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </children>
+</HBox>
