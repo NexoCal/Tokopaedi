@@ -3,6 +3,7 @@ package Controller;
 import java.io.IOException;
 
 import animatefx.animation.SlideInRight;
+import animatefx.animation.ZoomIn;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -30,7 +31,7 @@ public class UserMenuController {
         stage.setTitle("Tokopaedi");
         stage.show();
 
-        new SlideInRight(root).setSpeed(1.7).play();;
+        new ZoomIn(root).setSpeed(2.3).play();;
 
         ((Parent) event.getSource()).getScene().getWindow().hide();
 
@@ -48,7 +49,7 @@ public class UserMenuController {
         stage.setTitle("Tokopaedi");
         stage.show();
 
-        new SlideInRight(root).setSpeed(1.7).play();
+        new ZoomIn(root).setSpeed(2.3).play();
 
         ((Parent) event.getSource()).getScene().getWindow().hide();
     }

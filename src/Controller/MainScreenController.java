@@ -80,7 +80,11 @@ public class MainScreenController implements Initializable {
             loader.setLocation(getClass().getResource("/GraphicUserInterface/RecentTabCard.fxml"));
             VBox Base = loader.load();
             RecentTabCardController recentTabCardController = loader.getController();
-            recentTabCardController.SetHBox(IDs);
+            if (allproduct.size() < 10){
+                recentTabCardController.SetHBox(IDs);
+            }else{
+                recentTabCardController.SetHBoxbyBarang(DB.DaftarBarangDisplayRecent());
+            }
             VboxCardContainer.getChildren().add(Base);
         } catch (IOException e) {
             // TODO Auto-generated catch block
@@ -92,7 +96,7 @@ public class MainScreenController implements Initializable {
             loader.setLocation(getClass().getResource("/GraphicUserInterface/RecommendedTabCard.fxml"));
             VBox Base = loader.load();
             RecommendedTabCardController recommendedTabCardController = loader.getController();
-            recommendedTabCardController.setGridbyIDs(IDs);
+            recommendedTabCardController.setGridbyDaftarBarang(DB.DaftarBarangDisplay());
             VboxCardContainer.getChildren().add(Base);
         } catch (IOException e) {
             // TODO Auto-generated catch block

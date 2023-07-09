@@ -13,7 +13,7 @@
    <children>
       <Pane prefHeight="200.0" prefWidth="205.0" styleClass="imageborder">
          <children>
-            <ImageView fx:id="RecentGambarProdukDisplay" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" smooth="false" styleClass="imageborder">
+            <ImageView fx:id="RecentGambarProdukDisplay" fitHeight="198.0" fitWidth="199.0" pickOnBounds="true" smooth="false" styleClass="imageborder">
                <image>
                   <Image url="@../ImageAsset/ProfileImageBlank.png" />
                </image>
@@ -22,9 +22,9 @@
       </Pane>
       <VBox prefHeight="200.0" prefWidth="280.0">
          <children>
-            <Label fx:id="RecentNamaProdukDisplay" alignment="TOP_LEFT" prefHeight="47.0" prefWidth="244.0" text="Example Product Name">
+            <Label fx:id="RecentNamaProdukDisplay" alignment="TOP_LEFT" prefHeight="47.0" prefWidth="244.0" text="Example Product Name" wrapText="true">
                <font>
-                  <Font name="Arial" size="20.0" />
+                  <Font name="Arial Bold" size="20.0" />
                </font>
             </Label>
             <Label fx:id="Detail" prefHeight="20.0" prefWidth="280.0" text="Ukuran dan Warna">

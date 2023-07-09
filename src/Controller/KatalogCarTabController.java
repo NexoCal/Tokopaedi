@@ -1,6 +1,7 @@
 package Controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,15 +27,15 @@ public class KatalogCarTabController {
 
     public void setTab() throws IOException {
         DB.ConnectToDataBase("src/TokopaediDatabase.db");
-        int count = DB.CountDataBarang();
+        List <Integer> IDs= DB.SelectAllID();
         int Column = 1;
 
-        for (int i = 1; i <= count; i++) {
+        for (int ID : IDs) {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/GraphicUserInterface/KatalogCard.fxml"));
             VBox cardbox = loader.load();
             KatalogCardController katalogCardController = loader.getController();
-            katalogCardController.setData(i);
+            katalogCardController.setData(ID);
             if (katalogCardController.same) {
                 switch (Column) {
                     case 1:

@@ -4,6 +4,8 @@ import javafx.scene.image.Image;
 
 public class Barang {
     static int ID = 0;
+    int DecoyID;
+
     String NamaBarang;
     String HargaBarang;
     String UkuranBarang;
@@ -16,69 +18,77 @@ public class Barang {
     String User;
     Image GambarBarang;
 
-    public Barang(){
+    public Barang() {
 
     }
 
-    public Barang(String NamaBarang, String HargaBarang,String User, String Gambar){
+    public Barang(String NamaBarang, String HargaBarang, String User, String Gambar) {
         this.NamaBarang = NamaBarang;
         this.HargaBarang = HargaBarang;
         this.User = User;
     }
 
-        public Barang(int ID,String NamaBarang, String HargaBarang,String User, String Gambar){
-        this.NamaBarang = NamaBarang;
-        this.HargaBarang = HargaBarang;
-        this.User = User;
-        this.ID = ID;
-    }
-
-    public Barang(String NamaBarang, String HargaBarang,String User){
-        this.NamaBarang = NamaBarang;
-        this.HargaBarang = HargaBarang;
-        this.User = User;
-    }
-
-        public Barang(int ID,String NamaBarang, String HargaBarang,String User){
+    public Barang(int ID, String NamaBarang, String HargaBarang, String User, String Gambar) {
         this.NamaBarang = NamaBarang;
         this.HargaBarang = HargaBarang;
         this.User = User;
         this.ID = ID;
     }
 
-    public String getNamaBarang(){
+    public Barang(String NamaBarang, String HargaBarang, String User) {
+        this.NamaBarang = NamaBarang;
+        this.HargaBarang = HargaBarang;
+        this.User = User;
+    }
+
+    public Barang(int ID, String NamaBarang, String HargaBarang, String User) {
+        this.NamaBarang = NamaBarang;
+        this.HargaBarang = HargaBarang;
+        this.User = User;
+        this.ID = ID;
+    }
+
+    public int getDecoyID() {
+        return this.DecoyID;
+    }
+
+    public void setDecoyID(int DecoyID) {
+        this.DecoyID = DecoyID;
+    }
+
+    public String getNamaBarang() {
         return NamaBarang;
     }
 
-    public void setNamaBarang(String NamaBarang){
+    public void setNamaBarang(String NamaBarang) {
         this.NamaBarang = NamaBarang;
     }
 
-    public String getHargaBarang(){
+    public String getHargaBarang() {
         return HargaBarang;
     }
 
-    public void setHargaBarang(String HargaBarang){
+    public void setHargaBarang(String HargaBarang) {
         this.HargaBarang = HargaBarang;
     }
 
-    public String getUser(){
+    public String getUser() {
         return User;
     }
 
-    public void setUser(String User){
+    public void setUser(String User) {
         this.User = User;
     }
 
-    public Image getGambar(){
+    public Image getGambar() {
         return GambarBarang;
     }
 
-    public void setGambar(Image Gambar){
+    public void setGambar(Image Gambar) {
         this.GambarBarang = Gambar;
     }
 
-    public int getID(){
+    public int getID() {
         return ID;
     }
 

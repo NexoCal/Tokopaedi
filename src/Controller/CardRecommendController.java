@@ -52,7 +52,7 @@ public class CardRecommendController {
         UkuranBarang.setText("Ukuran/Berat "+barang.getUkuranBarang());
         HargaBarang.setText("Rp "+barang.getHargaBarang());
         GambarProduk.setImage(barang.getGambar());
-        this.ID = barang.getID();
+        this.ID = barang.getDecoyID();
     }
 
     @FXML

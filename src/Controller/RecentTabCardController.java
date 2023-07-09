@@ -23,7 +23,7 @@ public class RecentTabCardController {
             loader.setLocation(getClass().getResource("/GraphicUserInterface/RecentProductCard.fxml"));
             HBox cardbox = loader.load();
             RecentCardController recentCardController = loader.getController();
-            recentCardController.setDataBarang(ID.get(i-1));
+            recentCardController.setDataBarangbyID(ID.get(i-1));
 
             HboxContainer.getChildren().add(cardbox);
 
@@ -35,7 +35,7 @@ public class RecentTabCardController {
                 loader.setLocation(getClass().getResource("/GraphicUserInterface/RecentProductCard.fxml"));
                 HBox cardbox = loader.load();
                 RecentCardController recentCardController = loader.getController();
-                recentCardController.setDataBarang(ID.get(i-1));
+                recentCardController.setDataBarangbyID(ID.get(i-1));
 
                 HboxContainer.getChildren().add(cardbox);
 
@@ -44,6 +44,21 @@ public class RecentTabCardController {
         }
 
     }
+
+    public void SetHBoxbyBarang(List<Barang> x) throws IOException {
+        for (Barang barang : x){
+            FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("/GraphicUserInterface/RecentProductCard.fxml"));
+                HBox cardbox = loader.load();
+                RecentCardController recentCardController = loader.getController();
+                recentCardController.setDataBarangbyBarang(barang);
+
+                HboxContainer.getChildren().add(cardbox);
+
+        }
+
+    }
+
 
     public HBox getHBox() {
         return HboxContainer;

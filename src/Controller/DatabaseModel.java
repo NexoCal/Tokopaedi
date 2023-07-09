@@ -401,7 +401,7 @@ public class DatabaseModel {
 
     }
 
-    public List<Barang> DaftarBarang() {
+    public List<Barang> DaftarBarangLengkap() {
         String sql = "SELECT ID,Nama,Harga,Penjual,Gambar,Kondisi,Ukuran,Brand,Warna,Katagori,Deskripsi FROM DataProdukBarang";
         List<Barang> templist = new ArrayList<>();
         try (Statement stmt = dBConnection.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
@@ -409,6 +409,7 @@ public class DatabaseModel {
 
                 Barang temp = new Barang();
                 temp.setID(rs.getInt("ID"));
+                temp.setDecoyID(rs.getInt("ID"));
                 temp.setNamaBarang(rs.getString("Nama"));
                 temp.setHargaBarang(rs.getString("Harga"));
                 temp.setUser(rs.getString("Penjual"));
@@ -418,6 +419,62 @@ public class DatabaseModel {
                 temp.setWarnaBarang(rs.getString("Warna"));
                 temp.setKategoriBarang(rs.getString("Katagori"));
                 temp.setDeskripsiBarang(rs.getString("Deskripsi"));
+                InputStream iStream = rs.getBinaryStream("Gambar");
+                if (iStream != null) {
+                    Image Gambar = new Image(iStream);
+                    temp.setGambar(Gambar);
+                }
+                templist.add(temp);
+
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return templist;
+    }
+
+    public List<Barang> DaftarBarangDisplay() {
+        String sql = "SELECT ID,Nama,Harga,Penjual,Gambar,Ukuran FROM DataProdukBarang";
+        List<Barang> templist = new ArrayList<>();
+        try (Statement stmt = dBConnection.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+
+                Barang temp = new Barang();
+                temp.setID(rs.getInt("ID"));
+                temp.setDecoyID(rs.getInt("ID"));
+                temp.setNamaBarang(rs.getString("Nama"));
+                temp.setHargaBarang(rs.getString("Harga"));
+                temp.setUser(rs.getString("Penjual"));
+                temp.setUkuranBarang(rs.getString("Ukuran"));
+                InputStream iStream = rs.getBinaryStream("Gambar");
+                if (iStream != null) {
+                    Image Gambar = new Image(iStream);
+                    temp.setGambar(Gambar);
+                }
+                templist.add(temp);
+
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return templist;
+    }
+
+    public List<Barang> DaftarBarangDisplayRecent() {
+        String sql = "SELECT ID,Nama,Harga,Penjual,Gambar,Ukuran FROM DataProdukBarang";
+        List<Barang> templist = new ArrayList<>();
+        try (Statement stmt = dBConnection.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.getInt("ID") <= 10) {
+
+                Barang temp = new Barang();
+                temp.setID(rs.getInt("ID"));
+                temp.setDecoyID(rs.getInt("ID"));
+                temp.setNamaBarang(rs.getString("Nama"));
+                temp.setHargaBarang(rs.getString("Harga"));
+                temp.setUser(rs.getString("Penjual"));
+                temp.setUkuranBarang(rs.getString("Ukuran"));
                 InputStream iStream = rs.getBinaryStream("Gambar");
                 if (iStream != null) {
                     Image Gambar = new Image(iStream);

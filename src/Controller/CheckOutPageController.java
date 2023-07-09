@@ -8,6 +8,7 @@ import Model.Barang;
 import Model.User;
 import animatefx.animation.ZoomIn;
 import javafx.animation.Interpolator;
+import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -148,6 +149,7 @@ public class CheckOutPageController implements Initializable{
         PesanDiTerimaHarga.setText("Rp "+HargaProduk.getText().replace("Rp ", ""));
         PesanDiTerimaTotal.setText("Rp "+Total.getText().replace("Rp ", ""));
 
+        PauseTransition pause = new PauseTransition(Duration.millis(30000));
         TranslateTransition tailer = new TranslateTransition(Duration.millis(1000), Tail);
         TranslateTransition bodyier = new TranslateTransition(Duration.millis(1200), Body);
         TranslateTransition overlayer = new TranslateTransition(Duration.millis(1000), Overlay);
@@ -177,7 +179,8 @@ public class CheckOutPageController implements Initializable{
         ButtonDiTerima.setInterpolator(Custom1);
         ButtonDiTerima.setToY(-800);
         
-        bodyier.setOnFinished(e -> Overlaygone());
+        bodyier.setOnFinished(e -> {pause.play();Overlaygone();});
+        
 
         GoToDiterima.play();
         GoToDiterimaCard.play();
@@ -191,6 +194,7 @@ public class CheckOutPageController implements Initializable{
     }
 
     private void Overlaygone(){
+        
         TranslateTransition tailer = new TranslateTransition(Duration.millis(1000), Tail);
         TranslateTransition bodyier = new TranslateTransition(Duration.millis(1200), Body);
         TranslateTransition overlayer = new TranslateTransition(Duration.millis(1000), Overlay);
@@ -199,10 +203,14 @@ public class CheckOutPageController implements Initializable{
         bodyier.setInterpolator(Custom1);
         overlayer.setInterpolator(Custom1);
 
+       
+        
         tailer.setToX(2560);
-        tailer.setDelay(Duration.millis(150));
+        tailer.setDelay(Duration.millis(250));
         bodyier.setToX(2560);
+        bodyier.setDelay(Duration.millis(150));
         overlayer.setToX(2560);
+        overlayer.setDelay(Duration.millis(150));
 
         tailer.play();
         overlayer.play();

@@ -47,7 +47,7 @@ public class RecentCardController {
     @FXML
     private Label RecentNamaProdukDisplay;
 
-    public void setDataBarang(int ID){
+    public void setDataBarangbyID(int ID){
         DB.ConnectToDataBase("src/TokopaediDatabase.db");
         Barang CurrentBarangData = DB.SelectBarang(ID);
 
@@ -57,6 +57,17 @@ public class RecentCardController {
         PenjualRecent.setText(CurrentBarangData.getUser());
         RecentGambarProdukDisplay.setImage(CurrentBarangData.getGambar());
         this.ID = ID;
+    }
+
+    public void setDataBarangbyBarang( Barang barang ){
+        
+
+        RecentNamaProdukDisplay.setText(barang.getNamaBarang());
+        DetailRecent.setText(barang.getUkuranBarang()+"/"+barang.getWarnaBarang());
+        RecentHargaProdukDisplay.setText("Rp "+barang.getHargaBarang());
+        PenjualRecent.setText(barang.getUser());
+        RecentGambarProdukDisplay.setImage(barang.getGambar());
+        this.ID = barang.getDecoyID();
     }
 
     @FXML
