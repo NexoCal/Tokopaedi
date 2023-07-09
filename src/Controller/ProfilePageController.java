@@ -8,7 +8,10 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
+import Model.SceneTracker;
 import Model.User;
+import animatefx.animation.SlideInRight;
+import animatefx.animation.SlideOutRight;
 import animatefx.animation.ZoomIn;
 import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;
@@ -392,19 +395,40 @@ public class ProfilePageController implements Initializable {
 
     @FXML
     void Back(MouseEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/GraphicUserInterface/MainScreen.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
+        SceneTracker track = new SceneTracker();
 
+        if (track.isFromMainMenu()){
+
+
+            Parent root = FXMLLoader.load(getClass().getResource("/GraphicUserInterface/MainScreen.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            
             stage.setScene(scene);
             stage.setResizable(false);
             stage.initStyle(StageStyle.TRANSPARENT);
             stage.setTitle("Tokopaedi");
             stage.show();
-
+            
             new ZoomIn(root).setSpeed(2.2).play();
-
+            
             ((Parent) event.getSource()).getScene().getWindow().hide();
+
+        } else {
+            Parent root = FXMLLoader.load(getClass().getResource("/GraphicUserInterface/KatalogPage.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.initStyle(StageStyle.TRANSPARENT);
+            stage.setTitle("Tokopaedi");
+            stage.show();
+            
+            new SlideInRight(root).setSpeed(2.2).play();
+            
+            ((Parent) event.getSource()).getScene().getWindow().hide();
+        }
     }
 
 }

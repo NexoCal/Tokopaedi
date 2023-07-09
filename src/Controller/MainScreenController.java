@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import Model.Barang;
+import Model.SceneTracker;
 import Model.SearchListener;
 import Model.User;
 import animatefx.animation.SlideInDown;
@@ -55,6 +56,8 @@ public class MainScreenController implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+        SceneTracker track = new SceneTracker();
+        track.setTrack(true);
         allproduct = allproduk();
         IDs = GetIDs();
         User CurrentUser = DB.SelectUser(Session.getID());
@@ -89,7 +92,7 @@ public class MainScreenController implements Initializable {
             loader.setLocation(getClass().getResource("/GraphicUserInterface/RecommendedTabCard.fxml"));
             VBox Base = loader.load();
             RecommendedTabCardController recommendedTabCardController = loader.getController();
-            recommendedTabCardController.setGrid(IDs);
+            recommendedTabCardController.setGridbyDaftarBarang(DB.DaftarBarang());
             VboxCardContainer.getChildren().add(Base);
         } catch (IOException e) {
             // TODO Auto-generated catch block

@@ -47,6 +47,14 @@ public class CardRecommendController {
         this.ID = ID;
     }
 
+    public void setDataBarang(Barang barang){
+        NamaBarang.setText(barang.getNamaBarang());
+        UkuranBarang.setText(barang.getUkuranBarang());
+        HargaBarang.setText("Rp "+barang.getHargaBarang());
+        GambarProduk.setImage(barang.getGambar());
+        this.ID = barang.getID();
+    }
+
     @FXML
     void BukaKatalogPage(MouseEvent event) throws IOException {
         Barang barang = new Barang();

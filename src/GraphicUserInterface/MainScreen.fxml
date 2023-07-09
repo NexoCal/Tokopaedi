@@ -10,12 +10,24 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@StyleSheets/MainScreenStyleSheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainScreenController">
    <children>
       <Pane prefHeight="65.0" prefWidth="1280.0" styleClass="topnav">
          <children>
+            <Circle fill="DODGERBLUE" layoutX="1215.0" layoutY="70.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
+            <Circle fill="DODGERBLUE" layoutX="437.0" layoutY="-46.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
+            <Circle fill="DODGERBLUE" layoutX="809.0" layoutY="145.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
+            <Circle fill="DODGERBLUE" layoutX="722.0" layoutY="117.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
+            <Circle fill="DODGERBLUE" layoutX="524.0" layoutY="19.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
+            <Circle fill="DODGERBLUE" layoutX="997.0" layoutY="-8.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
+            <Circle fill="DODGERBLUE" layoutX="1022.0" layoutY="36.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
+            <Circle fill="DODGERBLUE" layoutX="295.0" layoutY="73.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
+            <Circle fill="DODGERBLUE" layoutX="322.0" layoutY="35.0" radius="11.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
+            <Circle fill="DODGERBLUE" layoutX="633.0" layoutY="32.0" radius="11.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
+            <Circle fill="DODGERBLUE" layoutX="974.0" layoutY="45.0" radius="11.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
             <HBox layoutX="321.0" layoutY="16.0" prefHeight="33.0" prefWidth="638.0">
                <children>
                   <TextField fx:id="SearchBar" onKeyPressed="#EnterSearch" prefHeight="33.0" prefWidth="589.0" promptText="Mau beli apa?" styleClass="searchbox">

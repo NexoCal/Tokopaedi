@@ -8,10 +8,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <HBox fx:id="BaseHBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="1158.0" styleClass="background" stylesheets="@StyleSheets/SearchCard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SearchCardController">
    <children>
-      <ImageView fx:id="Gambar" fitHeight="258.0" fitWidth="273.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Gambar" fitHeight="258.0" fitWidth="258.0" pickOnBounds="true">
          <image>
             <Image url="@../ImageAsset/ProfileImageBlank.png" />
          </image>

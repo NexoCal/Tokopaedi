@@ -1,25 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@StyleSheets/KatalogPage.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.KatalogPageController">
    <children>
-      <Pane prefHeight="800.0" prefWidth="1280.0" styleClass="Background">
+      <Pane prefHeight="65.0" prefWidth="1280.0" styleClass="TopNav">
          <children>
-            <Pane prefHeight="65.0" prefWidth="1280.0" styleClass="TopNav">
+            <Pane prefHeight="65.0" prefWidth="65.0" styleClass="TopNavCat" />
+            <Pane layoutX="128.0" layoutY="19.0" onMouseClicked="#GoToMain">
                <children>
-                  <Pane prefHeight="65.0" prefWidth="65.0" styleClass="TopNavCat" />
+                  <ImageView fitHeight="25.0" fitWidth="141.0" layoutX="-1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ImageAsset/Tokopaedi.png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
-            <Pane layoutX="61.0" layoutY="101.0" prefHeight="599.0" prefWidth="1158.0" styleClass="BackgroundCard">
+            <Circle fill="DODGERBLUE" layoutX="1209.0" layoutY="62.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
+            <Circle fill="DODGERBLUE" layoutX="431.0" layoutY="-54.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
+            <Circle fill="DODGERBLUE" layoutX="803.0" layoutY="137.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
+            <Circle fill="DODGERBLUE" layoutX="716.0" layoutY="109.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
+            <Circle fill="DODGERBLUE" layoutX="518.0" layoutY="11.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
+            <Circle fill="DODGERBLUE" layoutX="991.0" layoutY="-16.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
+            <Circle fill="DODGERBLUE" layoutX="1016.0" layoutY="28.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
+            <Circle fill="DODGERBLUE" layoutX="289.0" layoutY="65.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
+            <Circle fill="DODGERBLUE" layoutX="316.0" layoutY="27.0" radius="11.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
+            <Circle fill="DODGERBLUE" layoutX="627.0" layoutY="24.0" radius="11.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
+            <Circle fill="DODGERBLUE" layoutX="968.0" layoutY="37.0" radius="11.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
+         </children>
+      </Pane>
+      <Pane layoutY="65.0" prefHeight="735.0" prefWidth="1280.0" styleClass="Background">
+         <children>
+            <Pane layoutX="61.0" layoutY="45.0" prefHeight="599.0" prefWidth="1158.0" styleClass="BackgroundCard">
                <children>
                   <Pane layoutX="379.0" layoutY="14.0" prefHeight="569.0" prefWidth="766.0">
                      <children>
@@ -155,21 +178,30 @@
                      </children>
                   </Pane>
                   <ImageView fx:id="Gambar" fitHeight="359.0" fitWidth="359.0" layoutX="14.0" layoutY="16.0" pickOnBounds="true" />
-                  <VBox alignment="BOTTOM_CENTER" layoutX="14.0" layoutY="375.0" prefHeight="186.0" prefWidth="359.0" spacing="15.0">
+                  <VBox alignment="BOTTOM_CENTER" layoutX="14.0" layoutY="381.0" prefHeight="186.0" prefWidth="359.0" spacing="20.0">
                      <children>
-                        <HBox prefHeight="50.0" prefWidth="212.0">
+                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="212.0" spacing="11.0">
                            <children>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="31.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../ImageAsset/Icon/Vector%20realtime.png" />
+                                 </image></ImageView>
                               <Label prefHeight="50.0" prefWidth="278.0" text="Transaksi secara real time" wrapText="true">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
                               </Label>
                            </children>
+                           <VBox.margin>
+                              <Insets left="9.0" />
+                           </VBox.margin>
                         </HBox>
-                        <HBox prefHeight="50.0" prefWidth="212.0">
+                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="212.0" spacing="6.0">
                            <children>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="42.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../ImageAsset/Icon/Vector%20penghijauan.png" />
+                                 </image></ImageView>
                               <Label prefHeight="50.0" prefWidth="275.0" text="Kontribusi untuk penghijauan bumi" wrapText="true">
                                  <font>
                                     <Font name="Arial" size="18.0" />
@@ -177,14 +209,18 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="50.0" prefWidth="212.0">
+                        <HBox alignment="CENTER" prefHeight="48.0" prefWidth="323.0" spacing="7.0" VBox.vgrow="NEVER">
                            <children>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label prefHeight="50.0" prefWidth="192.0" text="Kualitas produk terjamin" wrapText="true">
+                              <ImageView fitHeight="31.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../ImageAsset/Icon/Vector%20jaminan%20produk.png" />
+                                 </image></ImageView>
+                              <Label prefHeight="48.0" prefWidth="134.0" text="Kualitas produk terjamin" wrapText="true">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
                               </Label>
+                              <Pane prefHeight="48.0" prefWidth="130.0" />
                            </children>
                         </HBox>
                      </children>
@@ -193,5 +229,30 @@
             </Pane>
          </children>
       </Pane>
+      <HBox fx:id="Userdetail" layoutX="1099.0" layoutY="20.0" onMouseClicked="#MenuTrigger" prefHeight="25.0" prefWidth="110.0" spacing="5.0">
+         <children>
+            <Label fx:id="NamaUser" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="99.0" text="Label" textFill="WHITESMOKE">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ImageAsset/Icon/Vector%20account.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="1075.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../ImageAsset/Icon/Vector%20notification.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="995.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../ImageAsset/Icon/Vector%20message.png" />
+         </image>
+      </ImageView>
+      <Pane fx:id="UserMenu" layoutX="1137.0" layoutY="65.0" prefHeight="118.0" prefWidth="119.0" />
    </children>
 </AnchorPane>

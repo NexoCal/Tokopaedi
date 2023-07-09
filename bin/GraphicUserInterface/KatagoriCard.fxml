@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -9,11 +8,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="549.0" stylesheets="@StyleSheets/KategoriCard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.KategoriCardController">
    <children>
-      <ImageView fx:id="GambarKategori" fitHeight="300.0" fitWidth="549.0" pickOnBounds="true" smooth="false">
-         <image>
-            <Image url="@../ImageAsset/ProfileImageBlank.png" />
-         </image>
-      </ImageView>
+      <ImageView fx:id="GambarKategori" fitHeight="300.0" fitWidth="549.0" pickOnBounds="true" />
       <Pane prefHeight="300.0" prefWidth="549.0" styleClass="Shade">
          <children>
             <VBox alignment="TOP_CENTER" layoutY="206.0" prefHeight="94.0" prefWidth="549.0">
