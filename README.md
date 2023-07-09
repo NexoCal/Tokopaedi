@@ -22,6 +22,7 @@ SQLite : https://sqlitebrowser.org/dl/
 ## Demo
 
 Slide : https://www.canva.com/design/DAFoIRFDmgI/aCoHQnkhGRL0BilH-JneUA/edit?utm_content=DAFoIRFDmgI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
 Youtube : https://youtu.be/-VejTM3kabg
 
 ## Pesan Singkat
