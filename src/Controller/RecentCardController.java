@@ -2,11 +2,8 @@ package Controller;
 
 import java.io.IOException;
 
-import org.sqlite.core.DB;
 
 import Model.Barang;
-import animatefx.animation.FadeIn;
-import animatefx.animation.FadeInDownBig;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,7 +12,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 

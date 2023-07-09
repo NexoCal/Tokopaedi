@@ -2,7 +2,6 @@ package Controller;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -11,7 +10,6 @@ import Model.SceneTracker;
 import Model.SearchListener;
 import Model.User;
 import animatefx.animation.SlideInDown;
-import animatefx.animation.SlideInRight;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -107,15 +105,7 @@ public class MainScreenController implements Initializable {
 
     private List<Barang> allproduk() {
         DB.ConnectToDataBase("src/TokopaediDatabase.db");
-        List<Integer> ItemIDs = DB.SelectAllID();
-        List<Barang> temp = new ArrayList<Barang>();
-        int x = DB.CountDataBarang();
-
-        for (int i = 0; i < x; i++) {
-            Barang tempBarang = DB.SelectBarang(i);
-            temp.add(tempBarang);
-        }
-        DB.DisconnectFromDataBase();
+        List<Barang> temp = DB.DaftarBarangLengkap();
         return temp;
     }
 

@@ -11,7 +11,6 @@ import java.util.ResourceBundle;
 import Model.SceneTracker;
 import Model.User;
 import animatefx.animation.SlideInRight;
-import animatefx.animation.SlideOutRight;
 import animatefx.animation.ZoomIn;
 import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;
@@ -24,11 +23,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
@@ -38,6 +40,24 @@ import javafx.util.Duration;
 public class ProfilePageController implements Initializable {
 
     DatabaseModel DB = new DatabaseModel();
+
+    @FXML
+    private Button BatalAlamat;
+
+    @FXML
+    private Pane CardChange1;
+
+    @FXML
+    private TextArea AlamatAdvance;
+
+    @FXML
+    private TextField AlamatField;
+
+    @FXML
+    private WebView Map;
+
+    @FXML
+    private Button UbahAlamatAdvance;
 
     @FXML
     private ImageView ProfileImage;
@@ -121,6 +141,12 @@ public class ProfilePageController implements Initializable {
 
     private String [] Kelamin = {"Laki - Laki", "Perempuan", "Tidak ingin memberitahu"};
 
+    private WebEngine engine;
+
+    void load(){
+        engine.load("https://www.google.com/maps/@-7.7374005,110.3460011,13z?entry=ttu");
+    }
+
     User x = new User();
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -162,6 +188,9 @@ public class ProfilePageController implements Initializable {
             ProfileImage.setImage(DataCurrentUser.getGambarProfile());
         }
         PilihKelamin.getItems().addAll(Kelamin);
+        engine= Map.getEngine();
+        load();
+
 
         PilihKelamin.setVisible(false);
         Replacement.setVisible(false);
@@ -173,18 +202,17 @@ public class ProfilePageController implements Initializable {
     void UbahAlamatClick(MouseEvent event){
         Replacement.setVisible(true);
         TranslateTransition Overlaymove = new TranslateTransition(Duration.millis(1), OverlayBackground);
-        TranslateTransition Overlaycardmove = new TranslateTransition(Duration.millis(1), Overlay);
+        TranslateTransition Overlaycardmove = new TranslateTransition(Duration.millis(1), CardChange1);
 
         Overlaymove.setInterpolator(Interpolator.DISCRETE);
         Overlaymove.setToY(800);
 
         Overlaycardmove.setInterpolator(Interpolator.DISCRETE);
-        Overlaycardmove.setToY(500);
+        Overlaycardmove.setToY(750);
 
         Overlaymove.play();
         Overlaycardmove.play();
 
-        UbahSubject.setText("Alamat");
         Subject = "Alamat";
         
     }
@@ -374,6 +402,53 @@ public class ProfilePageController implements Initializable {
         PilihKelamin.setVisible(false);
         PilihTanggal.setVisible(false);
         
+
+    }
+
+    @FXML
+    void UbahAlamatClickAdv(MouseEvent event) {
+        String Alamatbaru = "" + AlamatField.getText() + " | " + AlamatAdvance.getText();
+        Alamat.setText(Alamatbaru);
+        DB.Update(x.getID(),Subject, Alamatbaru);
+
+        AlamatField.clear();AlamatAdvance.clear();
+
+        TranslateTransition Overlaymove = new TranslateTransition(Duration.millis(1), OverlayBackground);
+        TranslateTransition Overlaycardmove = new TranslateTransition(Duration.millis(1), CardChange1);
+
+        Overlaymove.setInterpolator(Interpolator.DISCRETE);
+        Overlaymove.setToY(0);
+
+        Overlaycardmove.setInterpolator(Interpolator.DISCRETE);
+        Overlaycardmove.setToY(0);
+
+        Overlaycardmove.play();
+        Overlaymove.play();
+
+        Replacement.setVisible(false);
+        PilihKelamin.setVisible(false);
+        PilihTanggal.setVisible(false);
+
+    }
+
+    @FXML
+    void BatalAlamatClickAdv(MouseEvent event) {
+
+        TranslateTransition Overlaymove = new TranslateTransition(Duration.millis(1), OverlayBackground);
+        TranslateTransition Overlaycardmove = new TranslateTransition(Duration.millis(1), CardChange1);
+
+        Overlaymove.setInterpolator(Interpolator.DISCRETE);
+        Overlaymove.setToY(0);
+
+        Overlaycardmove.setInterpolator(Interpolator.DISCRETE);
+        Overlaycardmove.setToY(0);
+
+        Overlaycardmove.play();
+        Overlaymove.play();
+
+        Replacement.setVisible(false);
+        PilihKelamin.setVisible(false);
+        PilihTanggal.setVisible(false);
 
     }
 

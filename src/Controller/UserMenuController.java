@@ -2,7 +2,6 @@ package Controller;
 
 import java.io.IOException;
 
-import animatefx.animation.SlideInRight;
 import animatefx.animation.ZoomIn;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

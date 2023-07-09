@@ -8,8 +8,6 @@ import java.util.ResourceBundle;
 import Model.Barang;
 import Model.SearchListener;
 import animatefx.animation.SlideInDown;
-import animatefx.animation.SlideInRight;
-import animatefx.animation.SlideInUp;
 import animatefx.animation.ZoomIn;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
