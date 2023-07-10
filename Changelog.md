@@ -9,6 +9,7 @@ Changes:
 - Added Animation at MainScreen
 - Change how some scene switch to other scene
 - Revamp animation at CheckOut
+- Improvement at ProfilePage
 
 Fixes:
 
