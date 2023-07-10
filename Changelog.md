@@ -10,7 +10,10 @@ Changes:
 - Change how some scene switch to other scene
 - Revamp animation at CheckOut
 - Improvement at ProfilePage
+<<<<<<< HEAD
 - Split ProfilePage Pop up Animation into its own method
+=======
+>>>>>>> 805a0dcc6d9d126b5b44369dfa3719cc0ffdb090
 
 Fixes:
 
