@@ -1,3 +1,7 @@
+---
+title: ChangeLog
+---
+
 ## ChangeLog
 
 # 7-11-2023:
