@@ -31,9 +31,7 @@ Fixes:
 - Fix KatalogManagePage cant delete item
 - Fix animation at CheckOut
 =======
-- fix bug where Catalog doesnt show properly
-- fix KatalogManagePage cant delete item
-- fix animation at CheckOut
+
 
 
 
