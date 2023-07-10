@@ -26,9 +26,9 @@ Changes:
 
 Fixes:
 
--fix bug where Catalog doesnt show properly
--fix KatalogManagePage cant delete item
--fix animation at CheckOut
+- fix bug where Catalog doesnt show properly
+- fix KatalogManagePage cant delete item
+- fix animation at CheckOut
 
 
 
