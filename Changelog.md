@@ -1,6 +1,6 @@
 ## ChangeLog
 
-# 7-11-2023:
+### 7-11-2023:
 
 Changes:
 
@@ -16,7 +16,7 @@ Fixes:
 - Fix Kategori cant be access in sqlite
 - Fix flickering in checkout Animation
 
-# 7-10-2023:
+### 7-10-2023:
 
 Changes:
 
