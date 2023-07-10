@@ -15,16 +15,22 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@StyleSheets/MainScreenStyleSheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainScreenController">
    <children>
+      <ScrollPane layoutY="65.0" prefHeight="756.0" prefWidth="1320.0" styleClass="scrollBackground">
+         <content>
+            <VBox fx:id="VboxCardContainer" fillWidth="false" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="738.0" prefWidth="1280.0" spacing="15.0" styleClass="background">
+               <padding>
+                  <Insets bottom="26.0" left="61.0" right="81.0" top="26.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <Pane fx:id="overlayer" layoutX="-1280.0" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #000000; -fx-opacity: 0.0;" />
       <Pane prefHeight="65.0" prefWidth="1280.0" styleClass="topnav">
          <children>
-            <Circle fill="DODGERBLUE" layoutX="1215.0" layoutY="70.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
             <Circle fill="DODGERBLUE" layoutX="437.0" layoutY="-46.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
-            <Circle fill="DODGERBLUE" layoutX="809.0" layoutY="145.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
-            <Circle fill="DODGERBLUE" layoutX="722.0" layoutY="117.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
             <Circle fill="DODGERBLUE" layoutX="524.0" layoutY="19.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
             <Circle fill="DODGERBLUE" layoutX="997.0" layoutY="-8.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
             <Circle fill="DODGERBLUE" layoutX="1022.0" layoutY="36.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
-            <Circle fill="DODGERBLUE" layoutX="295.0" layoutY="73.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
             <Circle fill="DODGERBLUE" layoutX="322.0" layoutY="35.0" radius="11.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
             <Circle fill="DODGERBLUE" layoutX="633.0" layoutY="32.0" radius="11.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
             <Circle fill="DODGERBLUE" layoutX="974.0" layoutY="45.0" radius="11.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #363441; -fx-stroke: #363441;" />
@@ -49,20 +55,6 @@
                   <Image url="@../ImageAsset/Tokopaedi.png" />
                </image>
             </ImageView>
-            <HBox fx:id="Userdetail" layoutX="1098.0" layoutY="20.0" onMouseClicked="#MenuTrigger" prefHeight="25.0" prefWidth="110.0" spacing="5.0">
-               <children>
-                  <Label fx:id="NamaUser" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="99.0" text="Label" textFill="WHITESMOKE">
-                     <font>
-                        <Font name="Arial Bold" size="12.0" />
-                     </font>
-                  </Label>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../ImageAsset/Icon/Vector%20account.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </HBox>
             <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="1074.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../ImageAsset/Icon/Vector%20notification.png" />
@@ -74,16 +66,30 @@
                </image>
             </ImageView>
          </children></Pane>
-      <ScrollPane layoutY="65.0" prefHeight="756.0" prefWidth="1320.0" styleClass="scrollBackground">
-         <content>
-            <VBox fx:id="VboxCardContainer" fillWidth="false" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="738.0" prefWidth="1280.0" spacing="15.0" styleClass="background">
-               <padding>
-                  <Insets bottom="26.0" left="61.0" right="81.0" top="26.0" />
-               </padding>
-            </VBox>
-         </content>
-      </ScrollPane>
-      <Pane prefHeight="67.0" prefWidth="66.0" styleClass="CornerTrigger" />
+      <Pane onMouseClicked="#ShowSidePanel" prefHeight="67.0" prefWidth="66.0" styleClass="CornerTrigger">
+         <children>
+            <ImageView fitHeight="20.0" fitWidth="25.0" layoutX="21.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ImageAsset/Icon/MenuTrigger.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
+      <HBox fx:id="Userdetail" layoutX="1099.0" layoutY="21.0" prefHeight="25.0" prefWidth="110.0" spacing="5.0">
+         <children>
+            <Label fx:id="NamaUser" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="99.0" text="Label" textFill="WHITESMOKE">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ImageAsset/Icon/Vector%20account.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <Pane fx:id="SidePanel" layoutY="66.0" prefHeight="736.0" prefWidth="440.0" />
+      <Pane layoutX="1105.0" layoutY="21.0" onMouseClicked="#MenuTrigger" prefHeight="25.0" prefWidth="110.0" />
       <Pane fx:id="UserMenu" layoutX="1129.0" layoutY="66.0" prefHeight="118.0" prefWidth="119.0" />
    </children>
 </AnchorPane>

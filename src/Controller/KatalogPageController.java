@@ -87,11 +87,14 @@ public class KatalogPageController implements Initializable {
         Penjual.setText(barang.getUser());
         NamaUser.setText(CurrentUser.getNama());
 
-        DB.DisconnectFromDataBase();
+        
     }
 
     @FXML
     void BeliSekarang(MouseEvent event) throws IOException {
+        User userID = new User();
+        User user = DB.SelectUser(userID.getID());
+        if(user.getAlamat() != null){ 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GraphicUserInterface/CheckOutPage.fxml"));
         Scene scene = new Scene(loader.load());
         Stage stage = new Stage();
@@ -101,8 +104,10 @@ public class KatalogPageController implements Initializable {
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.setTitle("Tokopaedi");
         stage.show();
+        DB.DisconnectFromDataBase();
 
         ((Parent) event.getSource()).getScene().getWindow().hide();
+        }
     }
 
     @FXML
@@ -133,6 +138,7 @@ public class KatalogPageController implements Initializable {
             stage.show();
 
             new ZoomIn(root).setSpeed(2.2).play();
+            DB.DisconnectFromDataBase();
 
             ((Parent) event.getSource()).getScene().getWindow().hide();
     }

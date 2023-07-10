@@ -58,7 +58,7 @@ public class DatabaseModel {
             // TODO Auto-generated catch block
             System.out.print(e);
         }
-
+    
     }
 
     public void InsertBarang(String Nama, String Harga, String Penjual, String Kondisi, String Ukuran, String Brand,
@@ -399,6 +399,38 @@ public class DatabaseModel {
 
         return tempArrayList;
 
+    }
+
+    public List<Barang> getSearchResultKategori(String Search) {
+        String sql = "SELECT ID,Nama,Harga,Penjual,Gambar,Kondisi,Ukuran,Brand,Warna,Katagori,Deskripsi FROM DataProdukBarang WHERE Katagori like '%"
+                + Search + "%'";
+        List<Barang> tempArrayList = new ArrayList<>();
+        try (Statement stmt = dBConnection.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                Barang temp = new Barang();
+                temp.setID(rs.getInt("ID"));
+                temp.setNamaBarang(rs.getString("Nama"));
+                temp.setHargaBarang(rs.getString("Harga"));
+                temp.setUser(rs.getString("Penjual"));
+                temp.setKondisi(rs.getString("Kondisi"));
+                temp.setUkuranBarang(rs.getString("Ukuran"));
+                temp.setBrandBarang(rs.getString("Brand"));
+                temp.setWarnaBarang(rs.getString("Warna"));
+                temp.setKategoriBarang(rs.getString("Katagori"));
+                temp.setDeskripsiBarang(rs.getString("Deskripsi"));
+                InputStream iStream = rs.getBinaryStream("Gambar");
+                if (iStream != null) {
+                    Image Gambar = new Image(iStream);
+                    temp.setGambar(Gambar);
+                }
+                tempArrayList.add(temp);
+
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return tempArrayList;
     }
 
     public List<Barang> DaftarBarangLengkap() {

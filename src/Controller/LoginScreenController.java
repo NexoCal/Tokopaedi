@@ -323,6 +323,7 @@ public class LoginScreenController implements Initializable {
                     DaftarSandiField.clear();
                     DaftarKonfirmasiField.clear();
                     Database.DisconnectFromDataBase();
+                    SwitchToMasuk(event);
                 } else {
                     Notifier.setText("Sandi tidak sama");
                     SequentialTransition play = new SequentialTransition(pause, HideNotifier);

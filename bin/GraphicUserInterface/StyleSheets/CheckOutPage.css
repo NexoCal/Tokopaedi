@@ -15,12 +15,34 @@
 
 .TabCard{
     -fx-background-color: rgba(248, 248, 248, 1);
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 4);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 2);
+
+}
+
+.TabCardBayar{
+    -fx-background-color: rgba(248, 248, 248, 1);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 2);
+
+}
+
+.TabCardBayar:hover{
+    -fx-background-color: rgba(248, 248, 248, 1);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 2);
+    -fx-border-color: #403086;
+    -fx-border-width: 3;
 
 }
 
 .ButtonPesan{
     -fx-background-color: #3C394D;
+    -fx-background-radius: 0;
+    -fx-border-color: #000000;
+    -fx-border-radius: 0;
+
+}
+
+.ButtonPesan:hover{
+    -fx-background-color: #2c2a39;
     -fx-background-radius: 0;
     -fx-border-color: #000000;
     -fx-border-radius: 0;

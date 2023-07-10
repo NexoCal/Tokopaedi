@@ -9,7 +9,7 @@
 }
 
 .ScrollBackground{
-    -fx-border-color: #3C394D #FEEDE6 #FEEDE6 #3C394D;
+    -fx-border-color: #3C394D #3C394D #3C394D #3C394D;
     -fx-background-color: rgba(60, 57, 77, 1);
 }
 

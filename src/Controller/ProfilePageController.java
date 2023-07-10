@@ -410,9 +410,10 @@ public class ProfilePageController implements Initializable {
 
     @FXML
     void UbahAlamatClickAdv(MouseEvent event) {
-        String Alamatbaru = AlamatAdvance.getText();
+        String AlamatbaruDetail = AlamatAdvance.getText();
         String AlamatLandmarkbaru = AlamatField.getText();
-        Alamat.setText(Alamatbaru);
+        String Alamatbaru = AlamatLandmarkbaru + " | " + AlamatbaruDetail;
+        Alamat.setText(AlamatbaruDetail);
         AlamatLandMark.setText(AlamatLandmarkbaru);
         DB.Update(x.getID(),Subject, Alamatbaru);
 
