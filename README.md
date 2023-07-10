@@ -2,6 +2,8 @@
 
 Pak Edi merupakan seorang politikus yang ingin beristirahat dari dunia politik dan ingin masuk ke dalam industri teknologi. Pak Edi melihat sekeliling banyak sekali barang bekas yang di jual di sosial media tidak teratur dan sangat jauh antara deskripsi dengan barang yang dijual. Sehingga Pak Edi berinisiatif untuk mendirikan marketplace barang bekas untuk mengatur alur dari jual beli barang bekas lebih terorganisir bernamakan "Tokopaedi". 
 
+Go to [Change Log](Changelog.md)
+
 ## Design Interface
 
 Figma : https://www.figma.com/file/4IPJyttlbWIz2vEmfkcYQM/Tokped-kawai?type=design&node-id=627%3A368&mode=design&t=zGSVuX2g3jqWUgJF-1

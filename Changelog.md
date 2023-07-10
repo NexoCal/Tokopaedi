@@ -26,7 +26,16 @@ Changes:
 
 Fixes:
 
+<<<<<<< HEAD
 - Fix bug where Catalog doesnt show properly
 - Fix KatalogManagePage cant delete item
 - Fix animation at CheckOut
+=======
+- fix bug where Catalog doesnt show properly
+- fix KatalogManagePage cant delete item
+- fix animation at CheckOut
+
+
+
+>>>>>>> 3a505b94a2edddfe8ec3c398297b3b421f56b977
 
