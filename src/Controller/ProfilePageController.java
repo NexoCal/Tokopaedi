@@ -137,6 +137,9 @@ public class ProfilePageController implements Initializable {
     @FXML
     private Label DetailID;
 
+    @FXML
+    private Label AlamatLandMark;
+
     private String Subject;
 
     private String [] Kelamin = {"Laki - Laki", "Perempuan", "Tidak ingin memberitahu"};
@@ -407,8 +410,10 @@ public class ProfilePageController implements Initializable {
 
     @FXML
     void UbahAlamatClickAdv(MouseEvent event) {
-        String Alamatbaru = "" + AlamatField.getText() + " | " + AlamatAdvance.getText();
+        String Alamatbaru = AlamatAdvance.getText();
+        String AlamatLandmarkbaru = AlamatField.getText();
         Alamat.setText(Alamatbaru);
+        AlamatLandMark.setText(AlamatLandmarkbaru);
         DB.Update(x.getID(),Subject, Alamatbaru);
 
         AlamatField.clear();AlamatAdvance.clear();

@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
@@ -83,26 +84,27 @@
                   </Button>
                </children>
             </Pane>
-            <Pane layoutX="10.0" layoutY="443.0" prefHeight="54.0" prefWidth="724.0" styleClass="TextBackPane">
+            <Pane layoutX="10.0" layoutY="629.0" prefHeight="135.0" prefWidth="724.0" styleClass="TextBackPane">
                <children>
-                  <Label layoutX="24.0" layoutY="16.0" text="Alamat">
+                  <Label fx:id="AlamatLandMark" layoutX="14.0" layoutY="15.0" text="Alamat">
                      <font>
-                        <Font name="Arial Rounded MT Bold" size="20.0" />
+                        <Font name="Arial Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="Alamat" layoutX="280.0" layoutY="16.0" text="Admin123">
+                  <Label fx:id="Alamat" alignment="TOP_LEFT" layoutX="14.0" layoutY="44.0" prefHeight="43.0" prefWidth="691.0" text="Admin123" wrapText="true">
                      <font>
-                        <Font name="Arial Rounded MT Bold" size="20.0" />
+                        <Font name="Arial" size="20.0" />
                      </font>
                   </Label>
-                  <Button fx:id="UbahAlamat" layoutX="550.0" layoutY="9.0" mnemonicParsing="false" onMouseClicked="#UbahAlamatClick" prefWidth="102.0" styleClass="UbahButton" text="Ubah" textFill="#6b5ca8">
+                  <Button fx:id="UbahAlamat" layoutX="546.0" layoutY="82.0" mnemonicParsing="false" onMouseClicked="#UbahAlamatClick" prefWidth="102.0" styleClass="UbahButton" text="Ubah" textFill="#6b5ca8">
                      <font>
                         <Font name="Arial Bold" size="20.0" />
                      </font>
                   </Button>
+                  <Line endX="240.20001220703125" endY="2.0" layoutX="101.0" layoutY="42.0" startX="-87.0" startY="2.0" />
                </children>
             </Pane>
-            <Pane layoutX="10.0" layoutY="568.0" prefHeight="54.0" prefWidth="724.0" styleClass="TextBackPane">
+            <Pane layoutX="9.0" layoutY="438.0" prefHeight="54.0" prefWidth="724.0" styleClass="TextBackPane">
                <children>
                   <Label layoutX="24.0" layoutY="16.0" text="Nomor">
                      <font>
@@ -121,7 +123,7 @@
                   </Button>
                </children>
             </Pane>
-            <Pane layoutX="10.0" layoutY="645.0" prefHeight="54.0" prefWidth="724.0" styleClass="TextBackPane">
+            <Pane layoutX="9.0" layoutY="515.0" prefHeight="54.0" prefWidth="724.0" styleClass="TextBackPane">
                <children>
                   <Label layoutX="24.0" layoutY="16.0" text="Email">
                      <font>
@@ -202,7 +204,7 @@
                   <Font name="Arial Rounded MT Bold" size="36.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="514.0" text="Kontak">
+            <Label layoutX="16.0" layoutY="577.0" text="Alamat">
                <font>
                   <Font name="Arial Rounded MT Bold" size="36.0" />
                </font>
@@ -270,7 +272,10 @@
                   <Insets right="2.0" top="2.0" />
                </padding>
             </Pane>
-            <TextArea fx:id="AlamatAdvance" layoutX="14.0" layoutY="557.0" prefHeight="112.0" prefWidth="538.0" promptText="Alamat Lebih Detail" />
+            <TextArea fx:id="AlamatAdvance" layoutX="14.0" layoutY="557.0" prefHeight="112.0" prefWidth="538.0" promptText="Alamat Lebih Detail" wrapText="true">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font></TextArea>
             <Label layoutX="14.0" layoutY="526.0" text="Alamat Lebih Detail">
                <font>
                   <Font name="Arial" size="20.0" />
