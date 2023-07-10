@@ -238,6 +238,11 @@
                   </Button>
                   <ChoiceBox fx:id="PilihKelamin" layoutX="30.0" layoutY="71.0" prefHeight="35.0" prefWidth="580.0" styleClass="seletor" />
                   <DatePicker fx:id="PilihTanggal" layoutX="30.0" layoutY="71.0" prefHeight="39.0" prefWidth="580.0" styleClass="seletor" />
+                  <Label fx:id="NotifGeneral" layoutX="30.0" layoutY="141.0" style="-fx-opacity: 0.0;" text="Form kosong! Harap diisi terlebih dahulu" textFill="#6b5ca8">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
          </children>

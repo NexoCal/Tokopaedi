@@ -12,6 +12,7 @@ import Model.SceneTracker;
 import Model.User;
 import animatefx.animation.SlideInRight;
 import animatefx.animation.ZoomIn;
+import javafx.animation.FadeTransition;
 import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
@@ -140,17 +141,21 @@ public class ProfilePageController implements Initializable {
     @FXML
     private Label AlamatLandMark;
 
+    @FXML
+    private Label NotifGeneral;
+
     private String Subject;
 
-    private String [] Kelamin = {"Laki - Laki", "Perempuan", "Tidak ingin memberitahu"};
+    private String[] Kelamin = { "Laki - Laki", "Perempuan", "Tidak ingin memberitahu" };
 
     private WebEngine engine;
 
-    void load(){
+    void load() {
         engine.load("https://www.google.com/maps/@-7.7374005,110.3460011,13z?entry=ttu");
     }
 
     User x = new User();
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         DB.ConnectToDataBase("src/TokopaediDatabase.db");
@@ -179,7 +184,7 @@ public class ProfilePageController implements Initializable {
                 DetailID.setText(ID);
                 break;
         }
-        
+
         Nama.setText(DataCurrentUser.getNama());
         Username.setText(DataCurrentUser.getUsername());
         Nomor.setText(DataCurrentUser.getNomor());
@@ -187,13 +192,12 @@ public class ProfilePageController implements Initializable {
         Email.setText(DataCurrentUser.getEmail());
         JenisKelamin.setText(DataCurrentUser.getJenisKelamin());
         TanggalLahir.setText(DataCurrentUser.getTanggalLahir());
-        if(DataCurrentUser.getGambarProfile() != null){
+        if (DataCurrentUser.getGambarProfile() != null) {
             ProfileImage.setImage(DataCurrentUser.getGambarProfile());
         }
         PilihKelamin.getItems().addAll(Kelamin);
-        engine= Map.getEngine();
+        engine = Map.getEngine();
         load();
-
 
         PilihKelamin.setVisible(false);
         Replacement.setVisible(false);
@@ -202,7 +206,7 @@ public class ProfilePageController implements Initializable {
     }
 
     @FXML
-    void UbahAlamatClick(MouseEvent event){
+    void UbahAlamatClick(MouseEvent event) {
         Replacement.setVisible(true);
         TranslateTransition Overlaymove = new TranslateTransition(Duration.millis(1), OverlayBackground);
         TranslateTransition Overlaycardmove = new TranslateTransition(Duration.millis(1), CardChange1);
@@ -217,7 +221,7 @@ public class ProfilePageController implements Initializable {
         Overlaycardmove.play();
 
         Subject = "Alamat";
-        
+
     }
 
     @FXML
@@ -237,7 +241,6 @@ public class ProfilePageController implements Initializable {
 
         UbahSubject.setText("Email");
         Subject = "Email";
-
 
     }
 
@@ -355,37 +358,98 @@ public class ProfilePageController implements Initializable {
 
         Overlaycardmove.play();
         Overlaymove.play();
+
+        NotifGeneral.setVisible(false);
     }
 
     @FXML
     void UbahClick(MouseEvent event) {
         String NewData = Replacement.getText();
         String NewDataKelamin = PilihKelamin.getValue();
-        if (Subject.equals("Alamat")){
-            Alamat.setText(NewData);
-            DB.Update(x.getID(),Subject, NewData);
-        }else if (Subject.equals("Username")){
-            Username.setText(NewData);
-            DB.Update(x.getID(), Subject, NewData);
-        }else if (Subject.equals("Nama")){
-            Nama.setText(NewData);
-            DB.Update(x.getID(), Subject, NewData);
-        }else if (Subject.equals("Nomor")){
-            Nomor.setText(NewData);
-            DB.Update(x.getID(), Subject, NewData);
-        }else if (Subject.equals("Email")){
-            Email.setText(NewData);
-            DB.Update(x.getID(), Subject, NewData);
-        }else if (Subject.equals("JenisKelamin")){
-            JenisKelamin.setText(NewDataKelamin);
-            DB.Update(x.getID(), Subject, NewDataKelamin);
-        }else if (Subject.equals("TanggalLahir")){
-            LocalDate Tanggal = PilihTanggal.getValue();
-            String DateFormat = Tanggal.format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
-            TanggalLahir.setText(DateFormat);
-            DB.Update(x.getID(), Subject, DateFormat);
+        if (!NewData.equals("") || NewDataKelamin != null) {
+            if (Subject.equals("Alamat")) {
+                Alamat.setText(NewData);
+                DB.Update(x.getID(), Subject, NewData);
+                closeUbahPopUp();
+            } else if (Subject.equals("Username")) {
+                Username.setText(NewData);
+                DB.Update(x.getID(), Subject, NewData);
+                closeUbahPopUp();
+            } else if (Subject.equals("Nama")) {
+                Nama.setText(NewData);
+                DB.Update(x.getID(), Subject, NewData);
+                closeUbahPopUp();
+            } else if (Subject.equals("Nomor")) {
+                if (NewData.length() >= 12) {
+                    Nomor.setText(NewData);
+                    DB.Update(x.getID(), Subject, NewData);
+                    closeUbahPopUp();
+                } else {
+                    NotifGeneral.setVisible(true);
+                    NotifGeneral.setText("Nomor harus 12+ digit");
+                    FadeTransition shownotif = new FadeTransition(Duration.millis(1), NotifGeneral);
+                    shownotif.setFromValue(0.0);
+                    shownotif.setToValue(1.0);
+                    shownotif.setOnFinished(e -> {
+                        FadeTransition hidenotif = new FadeTransition(Duration.millis(1000), NotifGeneral);
+                        hidenotif.setFromValue(1.0);
+                        hidenotif.setToValue(0.0);
+                        hidenotif.setDelay(Duration.millis(2000));
+                        hidenotif.play();
+                    });
+                    shownotif.play();
+                }
+            } else if (Subject.equals("Email")) {
+                if(NewData.contains("@")){
+                Email.setText(NewData);
+                DB.Update(x.getID(), Subject, NewData);
+                closeUbahPopUp();
+                }else{
+                    NotifGeneral.setVisible(true);
+                    NotifGeneral.setText("Email tidak valid!");
+                    FadeTransition shownotif = new FadeTransition(Duration.millis(1), NotifGeneral);
+                    shownotif.setFromValue(0.0);
+                    shownotif.setToValue(1.0);
+                    shownotif.setOnFinished(e -> {
+                        FadeTransition hidenotif = new FadeTransition(Duration.millis(1000), NotifGeneral);
+                        hidenotif.setFromValue(1.0);
+                        hidenotif.setToValue(0.0);
+                        hidenotif.setDelay(Duration.millis(2000));
+                        hidenotif.play();
+                    });
+                    shownotif.play();
+
+                }
+            } else if (Subject.equals("JenisKelamin")) {
+                JenisKelamin.setText(NewDataKelamin);
+                DB.Update(x.getID(), Subject, NewDataKelamin);
+                closeUbahPopUp();
+            } else if (Subject.equals("TanggalLahir")) {
+                LocalDate Tanggal = PilihTanggal.getValue();
+                String DateFormat = Tanggal.format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
+                TanggalLahir.setText(DateFormat);
+                DB.Update(x.getID(), Subject, DateFormat);
+                closeUbahPopUp();
+            }
+        } else {
+            NotifGeneral.setText("Form kosong! harap diisi terlebih dahulu");
+            NotifGeneral.setVisible(true);
+            FadeTransition shownotif = new FadeTransition(Duration.millis(1), NotifGeneral);
+            shownotif.setFromValue(0.0);
+            shownotif.setToValue(1.0);
+            shownotif.setOnFinished(e -> {
+                FadeTransition hidenotif = new FadeTransition(Duration.millis(1000), NotifGeneral);
+                hidenotif.setFromValue(1.0);
+                hidenotif.setToValue(0.0);
+                hidenotif.setDelay(Duration.millis(2000));
+                hidenotif.play();
+            });
+            shownotif.play();
         }
 
+    }
+
+    void closeUbahPopUp() {
         Replacement.clear();
         PilihKelamin.setValue(null);
 
@@ -404,8 +468,6 @@ public class ProfilePageController implements Initializable {
         Replacement.setVisible(false);
         PilihKelamin.setVisible(false);
         PilihTanggal.setVisible(false);
-        
-
     }
 
     @FXML
@@ -415,9 +477,10 @@ public class ProfilePageController implements Initializable {
         String Alamatbaru = AlamatLandmarkbaru + " | " + AlamatbaruDetail;
         Alamat.setText(AlamatbaruDetail);
         AlamatLandMark.setText(AlamatLandmarkbaru);
-        DB.Update(x.getID(),Subject, Alamatbaru);
+        DB.Update(x.getID(), Subject, Alamatbaru);
 
-        AlamatField.clear();AlamatAdvance.clear();
+        AlamatField.clear();
+        AlamatAdvance.clear();
 
         TranslateTransition Overlaymove = new TranslateTransition(Duration.millis(1), OverlayBackground);
         TranslateTransition Overlaycardmove = new TranslateTransition(Duration.millis(1), CardChange1);
@@ -462,15 +525,14 @@ public class ProfilePageController implements Initializable {
     void PilihGambarFile(MouseEvent event) throws SQLException {
         FileChooser chooser = new FileChooser();
         chooser.getExtensionFilters().addAll(
-            new ExtensionFilter("Image Files (.png, .jpg)", "*.png", "*.jpg")
-        );
+                new ExtensionFilter("Image Files (.png, .jpg)", "*.png", "*.jpg"));
 
         File imageFile = chooser.showOpenDialog(null);
-        if (imageFile != null){
+        if (imageFile != null) {
             Image newprofileImage = new Image(imageFile.toPath().toString());
             ProfileImage.setImage(newprofileImage);
-            DB.UploadImageProfile(x.getID(),imageFile);
-            
+            DB.UploadImageProfile(x.getID(), imageFile);
+
         }
     }
 
@@ -478,36 +540,35 @@ public class ProfilePageController implements Initializable {
     void Back(MouseEvent event) throws IOException {
         SceneTracker track = new SceneTracker();
 
-        if (track.isFromMainMenu()){
-
+        if (track.isFromMainMenu()) {
 
             Parent root = FXMLLoader.load(getClass().getResource("/GraphicUserInterface/MainScreen.fxml"));
             Scene scene = new Scene(root);
             Stage stage = new Stage();
-            
+
             stage.setScene(scene);
             stage.setResizable(false);
             stage.initStyle(StageStyle.TRANSPARENT);
             stage.setTitle("Tokopaedi");
             stage.show();
-            
+
             new ZoomIn(root).setSpeed(2.2).play();
-            
+
             ((Parent) event.getSource()).getScene().getWindow().hide();
 
         } else {
             Parent root = FXMLLoader.load(getClass().getResource("/GraphicUserInterface/KatalogPage.fxml"));
             Scene scene = new Scene(root);
             Stage stage = new Stage();
-            
+
             stage.setScene(scene);
             stage.setResizable(false);
             stage.initStyle(StageStyle.TRANSPARENT);
             stage.setTitle("Tokopaedi");
             stage.show();
-            
+
             new SlideInRight(root).setSpeed(2.2).play();
-            
+
             ((Parent) event.getSource()).getScene().getWindow().hide();
         }
     }
