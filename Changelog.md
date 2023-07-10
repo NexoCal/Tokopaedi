@@ -30,3 +30,6 @@ Fixes:
 -fix KatalogManagePage cant delete item
 -fix animation at CheckOut
 
+
+
+
