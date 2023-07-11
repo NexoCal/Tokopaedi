@@ -19,6 +19,7 @@ import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -392,13 +393,15 @@ public class LoginScreenController implements Initializable {
             Database.DisconnectFromDataBase();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/GraphicUserInterface/MainScreen.fxml"));
             Scene scene = new Scene(loader.load());
-            Stage stage = (Stage) BackCard.getScene().getWindow();
+            Stage stage = new Stage();
 
             stage.setScene(scene);
             stage.setResizable(false);
             stage.initStyle(StageStyle.TRANSPARENT);
             stage.setTitle("Tokopaedi");
             stage.show();
+
+            ((Parent) event.getSource()).getScene().getWindow().hide();
 
         } else {
             Notifier.setText("Nama atau Sandi Salah");

@@ -75,6 +75,7 @@ public class MainScreenController implements Initializable {
         IDs = GetIDs();
         User CurrentUser = DB.SelectUser(Session.getID());
         NamaUser.setText(CurrentUser.getNama());
+        SidePanel.setVisible(false);
 
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -171,6 +172,7 @@ public class MainScreenController implements Initializable {
     @FXML
     void Search(MouseEvent event) throws IOException {
         SearchListener temp = new SearchListener();
+        temp.setIskategoriSearch(false);
         String Searched = SearchBar.getText();
         temp.setSearch(Searched);
 
@@ -193,6 +195,7 @@ public class MainScreenController implements Initializable {
     void ShowSidePanel(MouseEvent event) throws IOException {
 
         if (SideOn) {
+            SidePanel.setVisible(false);
             FadeTransition x = new FadeTransition(Duration.millis(500), overlayer);
             x.setFromValue(0.5);
             x.setToValue(0.0);
@@ -214,12 +217,13 @@ public class MainScreenController implements Initializable {
             loader.setLocation(getClass().getResource("/GraphicUserInterface/SidePaneSetter.fxml"));
             ScrollPane SidePane = loader.load();
             SidePanel.getChildren().add(SidePane);
-
+            
             overlay.setOnFinished(e -> {
                 FadeTransition x = new FadeTransition(Duration.millis(500), overlayer);
                 x.setFromValue(0.0);
                 x.setToValue(0.5);
                 x.play();
+                SidePanel.setVisible(true);
             });
             overlay.play();
             new SlideInLeft(SidePanel).setSpeed(2.0).play();

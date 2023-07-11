@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import Model.Barang;
 import Model.SearchListener;
+import Model.User;
 import animatefx.animation.SlideInDown;
 import animatefx.animation.SlideInLeft;
 import animatefx.animation.SlideOutLeft;
@@ -67,6 +68,9 @@ public class SearchPageController implements Initializable {
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         DB.ConnectToDataBase("src/TokopaediDatabase.db");
+        User tempx = new User();
+        User CurrentUser = DB.SelectUser(tempx.getID());
+        NamaUser.setText(CurrentUser.getNama());
         NotifkasiNoResult.setVisible(false);
         if (searched.isIskategoriSearch()) {
             List<Barang> temp = DB.getSearchResultKategori(searched.getSearch());
@@ -148,6 +152,7 @@ public class SearchPageController implements Initializable {
     @FXML
     void Search(MouseEvent event) throws IOException {
         SearchListener temp = new SearchListener();
+        temp.setIskategoriSearch(false);
         String Searched = SearchBar.getText();
         temp.setSearch(Searched);
 
