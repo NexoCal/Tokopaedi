@@ -3,7 +3,7 @@ package Model;
 import javafx.scene.image.Image;
 
 public class User {
-    static int ID = 1;
+    static int ID = 3;
     String Nama;
     String Username;
     String Nomor;

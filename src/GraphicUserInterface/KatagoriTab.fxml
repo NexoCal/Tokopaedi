@@ -6,10 +6,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox fx:id="BaseVBox" spacing="10.0" stylesheets="@StyleSheets/TabCard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.KategoriCardTabController">
    <children>
-      <Label text="Mungkin anda tertarik">
+      <Label text="Rekomendasi kategori hari ini">
          <font>
             <Font name="Arial Bold" size="24.0" />
          </font>

@@ -5,6 +5,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import Model.User;
+import animatefx.animation.FadeIn;
+import animatefx.animation.FadeOut;
+import animatefx.animation.SlideInDown;
+import animatefx.animation.SlideOutUp;
 import javafx.util.Duration;
 import javafx.animation.FadeTransition;
 import javafx.animation.Interpolator;
@@ -115,6 +119,9 @@ public class LoginScreenController implements Initializable {
 
     @FXML
     private Label TitleTokoPaediGlow;
+
+    @FXML
+    private Pane popupspace;
 
     // ===============[Initializer]===============//
 
@@ -283,7 +290,7 @@ public class LoginScreenController implements Initializable {
     }
 
     @FXML
-    void DaftarUser(MouseEvent event) {
+    void DaftarUser(MouseEvent event) throws IOException {
         DatabaseModel Database = new DatabaseModel();
 
         String Nama = DaftarNamaField.getText();
@@ -295,11 +302,11 @@ public class LoginScreenController implements Initializable {
         FadeTransition HideNotifier = new FadeTransition(Duration.millis(800), Notifier);
 
         if (Nama.isBlank()) {
-                Notifier.setText("Nama Harus Diisi");
-                SequentialTransition play = new SequentialTransition(pause, HideNotifier);
-                HideNotifier.setFromValue(1.0);
-                HideNotifier.setToValue(0.0);
-                play.play();
+            Notifier.setText("Nama Harus Diisi");
+            SequentialTransition play = new SequentialTransition(pause, HideNotifier);
+            HideNotifier.setFromValue(1.0);
+            HideNotifier.setToValue(0.0);
+            play.play();
         } else {
             if (Nomor.length() < 12) {
                 Notifier.setText("Nomor harus 12+ digit");
@@ -324,6 +331,30 @@ public class LoginScreenController implements Initializable {
                     DaftarKonfirmasiField.clear();
                     Database.DisconnectFromDataBase();
                     SwitchToMasuk(event);
+
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/GraphicUserInterface/PopUpLogin.fxml"));
+                    Pane pop = loader.load();
+                    popupspace.getChildren().add(pop);
+
+                    SlideInDown x = new SlideInDown(pop);
+                    FadeIn a = new FadeIn(pop);
+                    x.setOnFinished(e -> {
+                        SlideOutUp y = new SlideOutUp(pop);
+                        y.setDelay(Duration.millis(1000));
+                        y.play();
+                    });
+                    a.setOnFinished(f -> {
+                        FadeOut b = new FadeOut(pop);
+                        b.setDelay(Duration.millis(1000));
+                        b.setOnFinished(c -> {
+                            pop.getChildren().clear();
+                        });
+                        b.play();
+
+                    });
+                    a.play();
+                    x.play();
                 } else {
                     Notifier.setText("Sandi tidak sama");
                     SequentialTransition play = new SequentialTransition(pause, HideNotifier);

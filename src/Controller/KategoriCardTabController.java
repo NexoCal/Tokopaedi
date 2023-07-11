@@ -16,12 +16,11 @@ public class KategoriCardTabController {
     private HBox KategoriContainer;
 
     public void SetHBox() throws IOException{
-        for(int i = 0; i < 2; i++){
+        for(int i = 1; i < 3; i++){
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/GraphicUserInterface/KatagoriCard.fxml"));
-            Pane cardbox = loader.load();
-            KategoriContainer.getChildren().add(cardbox);
-
+            KategoriCardController kategoriCardController = loader.getController();
+            KategoriContainer.getChildren().add(loader.load());
         }
     }
 

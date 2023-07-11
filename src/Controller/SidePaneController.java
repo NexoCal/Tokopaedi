@@ -44,7 +44,7 @@ public class SidePaneController {
 
     @FXML
     void GoToAccount(MouseEvent event) throws IOException {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GraphicUserInterface/Profile.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GraphicUserInterface/ProfilePage.fxml"));
             scene = new Scene(loader.load());
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 

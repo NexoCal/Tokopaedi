@@ -254,5 +254,6 @@
          </image>
       </ImageView>
       <Pane fx:id="UserMenu" layoutX="1137.0" layoutY="65.0" prefHeight="118.0" prefWidth="119.0" />
+      <Pane fx:id="popupspace" layoutX="223.0" layoutY="84.0" prefHeight="50.0" prefWidth="835.0" />
    </children>
 </AnchorPane>

@@ -37,3 +37,14 @@
     -fx-background-radius: 0;
 
 }
+
+.ConfirmButton{
+    -fx-border-color: #3C394D;
+    -fx-background-color: #3C394D;
+
+}
+
+.CancelButton{
+    -fx-border-color: #3C394D;
+    -fx-background-color: #ffffff;
+}

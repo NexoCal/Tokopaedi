@@ -14,7 +14,18 @@ import javafx.stage.StageStyle;
 public class UserMenuController {
 
     @FXML
-    void Exit(MouseEvent event) {
+    void Exit(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/GraphicUserInterface/LoginScreen.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.setTitle("Tokopaedi");
+        stage.show();
+
+        ((Parent) event.getSource()).getScene().getWindow().hide();
 
     }
 

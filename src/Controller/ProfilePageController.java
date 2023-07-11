@@ -184,11 +184,20 @@ public class ProfilePageController implements Initializable {
                 DetailID.setText(ID);
                 break;
         }
+        String [] AlamatList;
+        if(DataCurrentUser.getAlamat() != null){
+        AlamatList = DataCurrentUser.getAlamat().split(" \\| ");
+        }else{
+            AlamatList = new String[2];
+            AlamatList[0] = "Not Set";
+            AlamatList[1] = "Not Set";
+        }
 
         Nama.setText(DataCurrentUser.getNama());
         Username.setText(DataCurrentUser.getUsername());
         Nomor.setText(DataCurrentUser.getNomor());
-        Alamat.setText(DataCurrentUser.getAlamat());
+        AlamatLandMark.setText(AlamatList[0]);
+        Alamat.setText(AlamatList[1]);
         Email.setText(DataCurrentUser.getEmail());
         JenisKelamin.setText(DataCurrentUser.getJenisKelamin());
         TanggalLahir.setText(DataCurrentUser.getTanggalLahir());

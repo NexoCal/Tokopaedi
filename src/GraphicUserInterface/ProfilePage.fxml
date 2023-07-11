@@ -86,22 +86,22 @@
             </Pane>
             <Pane layoutX="10.0" layoutY="629.0" prefHeight="135.0" prefWidth="724.0" styleClass="TextBackPane">
                <children>
-                  <Label fx:id="AlamatLandMark" layoutX="14.0" layoutY="15.0" text="Alamat">
+                  <Label fx:id="AlamatLandMark" layoutX="14.0" layoutY="12.0" text="Alamat">
                      <font>
                         <Font name="Arial Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="Alamat" alignment="TOP_LEFT" layoutX="14.0" layoutY="44.0" prefHeight="43.0" prefWidth="691.0" text="Admin123" wrapText="true">
+                  <Label fx:id="Alamat" alignment="TOP_LEFT" layoutX="14.0" layoutY="46.0" prefHeight="54.0" prefWidth="691.0" text="Admin123" wrapText="true">
                      <font>
-                        <Font name="Arial" size="20.0" />
+                        <Font name="Arial" size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="UbahAlamat" layoutX="546.0" layoutY="82.0" mnemonicParsing="false" onMouseClicked="#UbahAlamatClick" prefWidth="102.0" styleClass="UbahButton" text="Ubah" textFill="#6b5ca8">
+                  <Button fx:id="UbahAlamat" layoutX="549.0" layoutY="95.0" mnemonicParsing="false" onMouseClicked="#UbahAlamatClick" prefWidth="102.0" styleClass="UbahButton" text="Ubah" textFill="#6b5ca8">
                      <font>
                         <Font name="Arial Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Line endX="240.20001220703125" endY="2.0" layoutX="101.0" layoutY="42.0" startX="-87.0" startY="2.0" />
+                  <Line endX="240.20001220703125" endY="2.0" layoutX="101.0" layoutY="40.0" startX="-87.0" startY="2.0" />
                </children>
             </Pane>
             <Pane layoutX="9.0" layoutY="438.0" prefHeight="54.0" prefWidth="724.0" styleClass="TextBackPane">

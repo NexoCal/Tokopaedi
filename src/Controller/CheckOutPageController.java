@@ -226,6 +226,25 @@ public class CheckOutPageController implements Initializable{
 
     }
 
+    @FXML
+    void GoToMenu(MouseEvent event) throws IOException {
+        
+            Parent root = FXMLLoader.load(getClass().getResource("/GraphicUserInterface/MainScreen.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+    
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.initStyle(StageStyle.TRANSPARENT);
+            stage.setTitle("Tokopaedi");
+            stage.show();
+    
+            new ZoomIn(root).setSpeed(2.2).play();
+    
+            ((Parent) event.getSource()).getScene().getWindow().hide();
+        
+    }
+
     
 
 }
