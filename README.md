@@ -32,11 +32,11 @@ Youtube : https://youtu.be/-VejTM3kabg
 Aplikasi Desktop ini dirancang dan dibuat untuk tugas expo kampus Universitas Islam Indonesia - Fakultas Teknik Industri
 
 Team Phi:
-Muhammad Adrian Rizky Wijaya - 22523018
+Muhammad Adrian Rizky Wijaya - 22523018 (NexoCal)
 
-Rian Nur Ikhsan - 22523297
+Rian Nur Ikhsan - 22523297(elnoersan)
 
-Ahmad Gunawan Triyanto - 22523284
+Ahmad Gunawan Triyanto - 22523284 (Gattve)
 
-Muhammad Syahirul Alim- 22523237
+Muhammad Syahirul Alim- 22523237 (Xtroee)
 
