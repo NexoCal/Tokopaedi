@@ -15,7 +15,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@StyleSheets/MainScreenStyleSheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainScreenController">
    <children>
-      <ScrollPane layoutY="65.0" prefHeight="756.0" prefWidth="1320.0" styleClass="scrollBackground">
+      <ScrollPane layoutY="65.0" prefHeight="756.0" prefWidth="1333.0" styleClass="scrollBackground">
          <content>
             <VBox fx:id="VboxCardContainer" fillWidth="false" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="738.0" prefWidth="1280.0" spacing="15.0" styleClass="background">
                <padding>

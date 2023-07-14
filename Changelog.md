@@ -1,5 +1,16 @@
 ## ChangeLog
 
+### 7-14-2023:
+
+Changes:
+
+- Added Table For Admin
+
+Fixes:
+
+- Fix Search card not showing the right item
+- Fix Search function doesnt give the right item
+
 ### 7-11-2023:
 
 Changes:

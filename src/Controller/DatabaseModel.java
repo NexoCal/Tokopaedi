@@ -62,8 +62,8 @@ public class DatabaseModel {
     }
 
     public void InsertBarang(String Nama, String Harga, String Penjual, String Kondisi, String Ukuran, String Brand,
-            String Warna, String Katagori, String Deskripsi, File Gambar) throws SQLException {
-        String sql = "INSERT INTO DataProdukBarang(Nama,Harga,Penjual,Kondisi,Ukuran,Brand,Warna,Katagori,Deskripsi,Gambar) VALUES(?,?,?,?,?,?,?,?,?,?)";
+            String Warna, String Katagori, String Deskripsi, File Gambar, String Status) throws SQLException {
+        String sql = "INSERT INTO DataProdukBarang(Nama,Harga,Penjual,Kondisi,Ukuran,Brand,Warna,Katagori,Deskripsi,Gambar,Status) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 
         try (PreparedStatement pstmt = dBConnection.prepareStatement(sql);
                 FileInputStream fis = new FileInputStream(Gambar);) {
@@ -77,6 +77,7 @@ public class DatabaseModel {
             pstmt.setString(8, Katagori);
             pstmt.setString(9, Deskripsi);
             pstmt.setBinaryStream(10, (InputStream) fis, (int) Gambar.length());
+            pstmt.setString(11, Status);
             pstmt.executeUpdate();
         } catch (IOException e) {
             // TODO Auto-generated catch block
@@ -375,6 +376,7 @@ public class DatabaseModel {
             while (rs.next()) {
                 Barang temp = new Barang();
                 temp.setID(rs.getInt("ID"));
+                temp.setDecoyID(rs.getInt("ID"));
                 temp.setNamaBarang(rs.getString("Nama"));
                 temp.setHargaBarang(rs.getString("Harga"));
                 temp.setUser(rs.getString("Penjual"));
@@ -409,6 +411,7 @@ public class DatabaseModel {
             while (rs.next()) {
                 Barang temp = new Barang();
                 temp.setID(rs.getInt("ID"));
+                temp.setDecoyID(rs.getInt("ID"));
                 temp.setNamaBarang(rs.getString("Nama"));
                 temp.setHargaBarang(rs.getString("Harga"));
                 temp.setUser(rs.getString("Penjual"));
@@ -434,7 +437,7 @@ public class DatabaseModel {
     }
 
     public List<Barang> DaftarBarangLengkap() {
-        String sql = "SELECT ID,Nama,Harga,Penjual,Gambar,Kondisi,Ukuran,Brand,Warna,Katagori,Deskripsi FROM DataProdukBarang";
+        String sql = "SELECT ID,Nama,Harga,Penjual,Gambar,Kondisi,Ukuran,Brand,Warna,Katagori,Deskripsi,Status FROM DataProdukBarang";
         List<Barang> templist = new ArrayList<>();
         try (Statement stmt = dBConnection.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
@@ -457,6 +460,7 @@ public class DatabaseModel {
                     temp.setGambar(Gambar);
                 }
                 templist.add(temp);
+                temp.setStatus(rs.getString("Status"));
 
             }
         } catch (SQLException e) {

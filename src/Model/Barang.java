@@ -18,6 +18,10 @@ public class Barang {
     String User;
     Image GambarBarang;
 
+    String Status;
+
+    
+
     public Barang() {
 
     }
@@ -142,6 +146,14 @@ public class Barang {
 
     public void setKategoriBarang(String KategoriBarang) {
         this.KategoriBarang = KategoriBarang;
+    }
+
+    public String getStatus() {
+        return this.Status;
+    }
+
+    public void setStatus(String Status) {
+        this.Status = Status;
     }
 
 }

@@ -69,6 +69,7 @@ public class MainScreenController implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+        DB.ConnectToDataBase("src/TokopaediDatabase.db");
         SceneTracker track = new SceneTracker();
         track.setTrack(true);
         allproduct = allproduk();
@@ -116,17 +117,16 @@ public class MainScreenController implements Initializable {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        DB.DisconnectFromDataBase();
 
     }
 
     private List<Barang> allproduk() {
-        DB.ConnectToDataBase("src/TokopaediDatabase.db");
         List<Barang> temp = DB.DaftarBarangLengkap();
         return temp;
     }
 
     private List<Integer> GetIDs() {
-        DB.ConnectToDataBase("src/TokopaediDatabase.db");
         List<Integer> IDs = DB.SelectAllID();
         return IDs;
     }
@@ -152,6 +152,9 @@ public class MainScreenController implements Initializable {
             SearchListener temp = new SearchListener();
             String Searched = SearchBar.getText();
             temp.setSearch(Searched);
+            temp.setIskategoriSearch(false);
+
+            DB.DisconnectFromDataBase();
 
             Parent root = FXMLLoader.load(getClass().getResource("/GraphicUserInterface/SearchResultPage.fxml"));
             Scene scene = new Scene(root);
@@ -171,6 +174,7 @@ public class MainScreenController implements Initializable {
 
     @FXML
     void Search(MouseEvent event) throws IOException {
+        DB.DisconnectFromDataBase();
         SearchListener temp = new SearchListener();
         temp.setIskategoriSearch(false);
         String Searched = SearchBar.getText();

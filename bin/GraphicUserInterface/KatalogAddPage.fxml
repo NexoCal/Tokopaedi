@@ -133,7 +133,7 @@
                                     <Font name="Arial" size="14.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="KategoriElektronik" mnemonicParsing="false" onMouseClicked="#ElektronikPilih" prefHeight="35.0" prefWidth="100.0" styleClass="buttonChoice" text="Elekronik">
+                              <Button fx:id="KategoriElektronik" mnemonicParsing="false" onMouseClicked="#ElektronikPilih" prefHeight="35.0" prefWidth="100.0" styleClass="buttonChoice" text="Elektronik">
                                  <font>
                                     <Font name="Arial" size="14.0" />
                                  </font>

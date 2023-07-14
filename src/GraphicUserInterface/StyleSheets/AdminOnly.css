@@ -1,0 +1,15 @@
+.topNav{
+    -fx-background-color: rgba(60, 57, 77, 1);
+    -fx-border-color: rgba(60, 57, 77, 1);
+}
+
+.background{
+    -fx-background-color: rgba(254, 237, 230, 1);
+    -fx-border-color: rgba(254, 237, 230, 1);
+}
+
+.card{
+    -fx-background-color: rgba(248, 248, 248, 1);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 4);
+}
+

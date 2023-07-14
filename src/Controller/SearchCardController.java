@@ -44,7 +44,7 @@ public class SearchCardController {
         Penjual.setText(barang.getUser());
         Harga.setText("Rp "+barang.getHargaBarang());
 
-        this.ID = barang.getID();
+        this.ID = barang.getDecoyID();
     }
 
     @FXML

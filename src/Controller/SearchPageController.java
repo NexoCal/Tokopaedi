@@ -132,6 +132,7 @@ public class SearchPageController implements Initializable {
             SearchListener temp = new SearchListener();
             String Searched = SearchBar.getText();
             temp.setSearch(Searched);
+            temp.setIskategoriSearch(false);
 
             Parent root = FXMLLoader.load(getClass().getResource("/GraphicUserInterface/SearchResultPage.fxml"));
             Scene scene = new Scene(root);

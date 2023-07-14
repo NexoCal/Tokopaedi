@@ -45,6 +45,8 @@ public class RecentTabCardController {
     }
 
     public void SetHBoxbyBarang(List<Barang> x) throws IOException {
+        int count = 0;
+        int size = x.size();
         for (Barang barang : x){
             FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("/GraphicUserInterface/RecentProductCard.fxml"));
@@ -54,6 +56,13 @@ public class RecentTabCardController {
 
                 HboxContainer.getChildren().add(cardbox);
 
+                if (count > size){
+                    break;
+                }else if (count == 9){
+                    break;
+                }
+
+                count++;
         }
 
     }
