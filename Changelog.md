@@ -1,5 +1,17 @@
 ## ChangeLog
 
+### 7-15-2023:
+
+Changes:
+
+- Added Full Admin Interface for monitoring user dan barang
+
+Fixes :
+
+- Fix ID Mismatch in User
+- Fix User Deleteion delete wrong user
+- Fix Barang Table wont show updated data
+
 ### 7-14-2023:
 
 Changes:

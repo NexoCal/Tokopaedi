@@ -4,50 +4,86 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@StyleSheets/AdminOnly.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AdminOnlyController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@StyleSheets/AdminOnly.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AdminOnlyUserController">
    <children>
       <Pane prefHeight="65.0" prefWidth="1280.0" styleClass="topNav" />
       <Pane layoutY="66.0" prefHeight="740.0" prefWidth="1280.0" styleClass="background">
          <children>
-            <Pane layoutX="871.0" layoutY="48.0" prefHeight="640.0" prefWidth="362.0" styleClass="card">
+            <Pane layoutX="875.0" layoutY="48.0" prefHeight="640.0" prefWidth="362.0" styleClass="card">
                <children>
-                  <Button layoutX="26.0" layoutY="167.0" mnemonicParsing="false" onMouseClicked="#Search" prefHeight="35.0" prefWidth="313.0" text="Search" />
-                  <Button layoutX="27.0" layoutY="208.0" mnemonicParsing="false" onMouseClicked="#DeleteSelected" prefHeight="35.0" prefWidth="313.0" text="Delete" />
-                  <Button fx:id="FilterButton" layoutX="27.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#Filter" prefHeight="35.0" prefWidth="313.0" text="Filter : All" />
-                  <TextField fx:id="FieldSearchPenjual" layoutX="26.0" layoutY="54.0" prefHeight="35.0" prefWidth="313.0" />
-                  <Label layoutX="29.0" layoutY="30.0" text="Penjual Barang">
+                  <Button layoutX="26.0" layoutY="351.0" mnemonicParsing="false" onMouseClicked="#UbahData" prefHeight="35.0" prefWidth="313.0" text="Ubah" />
+                  <Button layoutX="25.0" layoutY="140.0" mnemonicParsing="false" onMouseClicked="#DeleteSelected" prefHeight="35.0" prefWidth="313.0" text="Delete" />
+                  <Button layoutX="25.0" layoutY="97.0" mnemonicParsing="false" onMouseClicked="#SearchID" prefHeight="35.0" prefWidth="313.0" text="Search" />
+                  <TextField fx:id="NamaField" layoutX="26.0" layoutY="238.0" prefHeight="35.0" prefWidth="313.0" />
+                  <Label layoutX="29.0" layoutY="214.0" text="Nama User">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="FieldSearchHargaLow" layoutX="26.0" layoutY="122.0" prefHeight="35.0" prefWidth="143.0" />
-                  <Label layoutX="29.0" layoutY="98.0" text="Harga">
+                  <TextField fx:id="SandiField" layoutX="26.0" layoutY="306.0" prefHeight="35.0" prefWidth="313.0" />
+                  <Label layoutX="29.0" layoutY="282.0" text="Sandi User">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="FieldSearchHargaHigh" layoutX="196.0" layoutY="122.0" prefHeight="35.0" prefWidth="143.0" />
-                  <Label layoutX="179.0" layoutY="128.0" text="-">
+                  <TextField fx:id="IDSearchField" layoutX="25.0" layoutY="51.0" prefHeight="35.0" prefWidth="313.0" />
+                  <Label layoutX="27.0" layoutY="29.0" text="ID User">
                      <font>
-                        <Font name="Arial" size="18.0" />
+                        <Font name="Arial" size="14.0" />
                      </font>
                   </Label>
+                  <TextArea fx:id="AlamatField" layoutX="26.0" layoutY="423.0" prefHeight="163.0" prefWidth="313.0" promptText="Alamat muncul disini" wrapText="true" />
+                  <Label layoutX="29.0" layoutY="401.0" text="Alamat">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Warning" layoutX="29.0" layoutY="190.0" text="Target ID tidak ditemukan" textFill="RED" />
                </children></Pane>
-            <TableView fx:id="TableBarang" layoutX="36.0" layoutY="48.0" prefHeight="640.0" prefWidth="818.0">
+            <TableView fx:id="TableUser" layoutX="40.0" layoutY="48.0" onKeyPressed="#GetDataKeyPressed" onMouseClicked="#GetData" prefHeight="640.0" prefWidth="818.0">
               <columns>
-                <TableColumn fx:id="IDCol" prefWidth="71.73335647583008" text="ID" />
-                <TableColumn fx:id="NamaCol" minWidth="0.0" prefWidth="249.86664581298828" text="Nama" />
-                  <TableColumn fx:id="HargaCol" prefWidth="184.53329467773438" text="Harga" />
-                  <TableColumn fx:id="PenjualCol" prefWidth="159.46661376953125" text="Penjual" />
-                  <TableColumn fx:id="StatusCol" prefWidth="148.53338623046875" text="Status" />
+                <TableColumn fx:id="IDCol" prefWidth="44.0" text="ID" />
+                <TableColumn fx:id="NamaCol" minWidth="0.0" prefWidth="99.0" text="Nama" />
+                  <TableColumn fx:id="SandiCol" prefWidth="111.0" text="Sandi" />
+                  <TableColumn fx:id="NomorCol" prefWidth="148.0" text="Nomor" />
+                  <TableColumn fx:id="EmailCol" prefWidth="156.0" text="Email" />
+                  <TableColumn fx:id="AlamatCol" prefWidth="259.0" text="Alamat" />
               </columns>
             </TableView>
          </children>
       </Pane>
+      <ImageView fitHeight="25.0" fitWidth="141.0" layoutX="27.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../ImageAsset/Tokopaedi.png" />
+         </image>
+      </ImageView>
+      <HBox alignment="CENTER_LEFT" layoutX="199.0" layoutY="15.0" prefHeight="35.0" prefWidth="300.0" spacing="30.0">
+         <children>
+            <Label fx:id="BarangNav" alignment="CENTER" onMouseClicked="#GoToBarangTable" prefHeight="16.0" prefWidth="60.0" styleClass="textNav" text="Barang" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="UserNav" alignment="CENTER" prefHeight="16.0" prefWidth="60.0" styleClass="textNav" text="User" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="KeluarNav" alignment="CENTER" onMouseClicked="#Keluar" prefHeight="16.0" prefWidth="60.0" styleClass="textNav" text="Keluar" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

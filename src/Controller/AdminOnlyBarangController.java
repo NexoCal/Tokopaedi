@@ -1,5 +1,6 @@
 package Controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,13 +10,18 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 public class AdminOnlyBarangController implements Initializable {
 
@@ -50,6 +56,15 @@ public class AdminOnlyBarangController implements Initializable {
 
     @FXML
     private Button FilterButton;
+
+    @FXML
+    private Label BarangNav;
+
+    @FXML
+    private Label KeluarNav;
+
+    @FXML
+    private Label UserNav;
 
     ObservableList<Barang> DataBarang = FXCollections.observableArrayList();
 
@@ -197,6 +212,25 @@ public class AdminOnlyBarangController implements Initializable {
             TableBarang.refresh();
         }
 
+    }
+
+    @FXML
+    void GoToUserTable(MouseEvent event) throws IOException {
+        DB.DisconnectFromDataBase();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GraphicUserInterface/AdminOnlyScreenUser.fxml"));
+        Scene scene = new Scene(loader.load());
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        stage.setScene(scene);
+        stage.show();
+
+        
+    }
+
+    @FXML
+    void Keluar(MouseEvent event) {
+        ((Node)event.getSource()).getScene().getWindow().hide();
+        System.exit(0);
     }
 
 }

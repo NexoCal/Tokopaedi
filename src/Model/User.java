@@ -4,6 +4,7 @@ import javafx.scene.image.Image;
 
 public class User {
     static int ID = 3;
+    int DecoyID;
     String Nama;
     String Username;
     String Nomor;
@@ -107,5 +108,13 @@ public class User {
 
     public void setGambarProfile(Image GambarProfile) {
         this.GambarProfile = GambarProfile;
+    }
+
+    public int getDecoyID() {
+        return this.DecoyID;
+    }
+
+    public void setDecoyID(int DecoyID) {
+        this.DecoyID = DecoyID;
     }
 }

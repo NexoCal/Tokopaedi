@@ -12,4 +12,10 @@
     -fx-background-color: rgba(248, 248, 248, 1);
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 4);
 }
+.textNav{
+
+}
+.textNav:hover{
+    -fx-font-weight: Bold;
+}
 

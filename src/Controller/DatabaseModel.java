@@ -87,78 +87,6 @@ public class DatabaseModel {
 
     }
 
-    // public String GetProductDataNama(int ID) {
-    // String sql = "SELECT ID,Nama FROM DataProdukBarang";
-    // String Nama = "";
-    // try (Statement stmt = dBConnection.createStatement(); ResultSet rs =
-    // stmt.executeQuery(sql)) {
-    // if (ID == rs.getInt("ID")) {
-    // Nama = rs.getString("Nama");
-    // }
-    // } catch (SQLException e) {
-    // // TODO Auto-generated catch block
-    // e.printStackTrace();
-    // }
-    // return Nama;
-    // }
-
-    // public String GetProductDataHarga(int ID) {
-    // String sql = "SELECT ID,Harga FROM DataProdukBarang";
-    // String Harga = "";
-    // try (Statement stmt = dBConnection.createStatement(); ResultSet rs =
-    // stmt.executeQuery(sql)) {
-    // if (ID == rs.getInt("ID")) {
-    // Harga = rs.getString("Harga");
-    // }
-    // } catch (SQLException e) {
-    // // TODO Auto-generated catch block
-    // e.printStackTrace();
-    // }
-    // return Harga;
-    // }
-
-    // public String GetProductDataPenjual(int ID) {
-    // String sql = "SELECT ID,Penjual FROM DataProdukBarang";
-    // String Penjual = "";
-    // try (Statement stmt = dBConnection.createStatement(); ResultSet rs =
-    // stmt.executeQuery(sql)) {
-    // if (ID == rs.getInt("ID")) {
-    // Penjual = rs.getString("Penjual");
-    // }
-    // } catch (SQLException e) {
-    // // TODO Auto-generated catch block
-    // e.printStackTrace();
-    // }
-    // return Penjual;
-    // }
-
-    // public Image GetProductDataGambar(int ID) throws IOException {
-    // String sql = "SELECT ID,Gambar FROM DataProdukBarang";
-    // Image image = null;
-    // try (Statement stmt = dBConnection.createStatement(); ResultSet rs =
-    // stmt.executeQuery(sql)) {
-    // if (ID == rs.getInt("ID")) {
-    // InputStream x = rs.getBinaryStream("Gambar");
-    // OutputStream y = new FileOutputStream(new File("Image.png"));
-    // byte[] content = new byte[1024];
-    // int size = 0;
-    // while ((size = x.read(content)) != -1) {
-    // y.write(content, 0, size);
-    // }
-    // y.close();
-    // x.close();
-
-    // Image render = new Image("file:Image.png", 220, 220, false, false);
-    // image = render;
-
-    // }
-    // } catch (SQLException e) {
-    // // TODO Auto-generated catch block
-    // e.printStackTrace();
-    // }
-    // return image;
-    // }
-
     public User SelectUser(int ID) {
         String sql = "SELECT ID,Nama,Nomor,Username,Alamat,Email,JenisKelamin,TanggalLahir,GambarProfile FROM DataUser";
         User temp = new User();
@@ -318,6 +246,17 @@ public class DatabaseModel {
         }
     }
 
+    public void DeleteUser(int ID) {
+        String sql = "DELETE FROM DataUser WHERE ID = ?";
+        try (PreparedStatement pstmt = dBConnection.prepareStatement(sql)) {
+            pstmt.setInt(1, ID);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
+
     public void UpdateBarang(int ID, String Nama, String Harga, String Penjual, String Kondisi, String Ukuran,
             String Brand,
             String Warna, String Katagori, String Deskripsi, File Gambar) throws FileNotFoundException, IOException {
@@ -368,6 +307,30 @@ public class DatabaseModel {
 
     }
 
+    public void UpdateUserSandi(int ID, String Sandi) throws FileNotFoundException, IOException {
+        String sql = "UPDATE DataUser SET Sandi = ? WHERE ID = ?";
+        try (PreparedStatement pstmt = dBConnection.prepareStatement(sql);) {
+            pstmt.setString(1, Sandi);
+            pstmt.setInt(2, ID);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+
+    }
+
+    public void UpdateUserNama(int ID, String Nama) throws FileNotFoundException, IOException {
+        String sql = "UPDATE DataUser SET Nama = ? WHERE ID = ?";
+        try (PreparedStatement pstmt = dBConnection.prepareStatement(sql);) {
+            pstmt.setString(1, Nama);
+            pstmt.setInt(2, ID);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+
+    }
+
     public List<Barang> getSearchResult(String Search) {
         String sql = "SELECT ID,Nama,Harga,Penjual,Gambar,Kondisi,Ukuran,Brand,Warna,Katagori,Deskripsi FROM DataProdukBarang WHERE Nama like '%"
                 + Search + "%'";
@@ -391,6 +354,7 @@ public class DatabaseModel {
                     Image Gambar = new Image(iStream);
                     temp.setGambar(Gambar);
                 }
+                temp.setStatus(rs.getString("Status"));
                 tempArrayList.add(temp);
 
             }
@@ -426,6 +390,7 @@ public class DatabaseModel {
                     Image Gambar = new Image(iStream);
                     temp.setGambar(Gambar);
                 }
+                temp.setStatus(rs.getString("Status"));
                 tempArrayList.add(temp);
 
             }
@@ -459,8 +424,8 @@ public class DatabaseModel {
                     Image Gambar = new Image(iStream);
                     temp.setGambar(Gambar);
                 }
-                templist.add(temp);
                 temp.setStatus(rs.getString("Status"));
+                templist.add(temp);
 
             }
         } catch (SQLException e) {
@@ -516,8 +481,40 @@ public class DatabaseModel {
                     Image Gambar = new Image(iStream);
                     temp.setGambar(Gambar);
                 }
+                
                 templist.add(temp);
 
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return templist;
+    }
+
+    public List<User> DaftarUserLengkap() {
+        String sql = "SELECT ID,Nama,Nomor,Sandi,Username,Alamat,Email,JenisKelamin,TanggalLahir,GambarProfile FROM DataUser";
+        List<User> templist = new ArrayList<>();
+        try (Statement stmt = dBConnection.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+
+                User temp = new User();
+                temp.setID(rs.getInt("ID"));
+                temp.setDecoyID(rs.getInt("ID"));
+                temp.setNama(rs.getString("Nama"));
+                temp.setNomor(rs.getString("Nomor"));
+                temp.setSandi(rs.getString("Sandi"));
+                temp.setUsername(rs.getString("Username"));
+                temp.setAlamat(rs.getString("Alamat"));
+                temp.setEmail(rs.getString("Email"));
+                temp.setJenisKelamin(rs.getString("JenisKelamin"));
+                temp.setTanggalLahir(rs.getString("TanggalLahir"));
+                InputStream iStream = rs.getBinaryStream("GambarProfile");
+                if (iStream != null) {
+                    Image Gambar = new Image(iStream);
+                    temp.setGambarProfile(Gambar);
+                }
+                templist.add(temp);
             }
         } catch (SQLException e) {
             // TODO Auto-generated catch block
