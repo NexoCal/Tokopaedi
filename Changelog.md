@@ -5,6 +5,8 @@
 Changes:
 
 - Added Full Admin Interface for monitoring user dan barang
+- Added Function to revert transaction
+- Added Table for Tracking Transaction
 
 Fixes :
 
