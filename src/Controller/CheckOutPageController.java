@@ -136,6 +136,7 @@ public class CheckOutPageController implements Initializable{
         PesanDiTerimaGambar.setImage(barang.getGambar());;
         PesanDiTerimaTotal.setText("Rp "+Total.getText().replace("Rp ", ""));
 
+
         PauseTransition pause = new PauseTransition(Duration.millis(30000));
         TranslateTransition tailer = new TranslateTransition(Duration.millis(1000), Tail);
         TranslateTransition bodyier = new TranslateTransition(Duration.millis(1200), Body);
@@ -208,6 +209,7 @@ public class CheckOutPageController implements Initializable{
         DB.ConnectToDataBase("src/TokopaediDatabase.db");
         Barang IDBarang = new Barang();
         Barang barang = DB.SelectBarang(IDBarang.getID());
+        DB.UpdateStatusBarang(barang.getID(), "Pending");
         DB.Deletebarang(barang.getID());
         DB.DisconnectFromDataBase();
         Parent root = FXMLLoader.load(getClass().getResource("/GraphicUserInterface/MainScreen.fxml"));

@@ -254,6 +254,8 @@ public class KatalogPageAddController implements Initializable {
         }else{
         try {
             DB.InsertBarang(NamaBarang,HargaBarang,PenjualBarang,KondisiBarang,UkuranBarang,BrandBarang,WarnaBarang,KategoriBarang,Deskripsi,GambarBarang, "Belum Terjual");
+            DB.InsertBarangAdminVersion(NamaBarang,HargaBarang,PenjualBarang,KondisiBarang,UkuranBarang,BrandBarang,WarnaBarang,KategoriBarang,Deskripsi,GambarBarang, "Belum Terjual");
+
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

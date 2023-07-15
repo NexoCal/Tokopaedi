@@ -46,8 +46,8 @@
             <Pane layoutX="871.0" layoutY="48.0" prefHeight="640.0" prefWidth="362.0" styleClass="card">
                <children>
                   <Button layoutX="26.0" layoutY="167.0" mnemonicParsing="false" onMouseClicked="#Search" prefHeight="35.0" prefWidth="313.0" text="Search" />
-                  <Button layoutX="27.0" layoutY="208.0" mnemonicParsing="false" onMouseClicked="#DeleteSelected" prefHeight="35.0" prefWidth="313.0" text="Delete" />
-                  <Button fx:id="FilterButton" layoutX="27.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#Filter" prefHeight="35.0" prefWidth="313.0" text="Filter : All" />
+                  <Button layoutX="26.0" layoutY="250.0" mnemonicParsing="false" onMouseClicked="#DeleteSelected" prefHeight="35.0" prefWidth="313.0" text="Delete" />
+                  <Button fx:id="FilterButton" layoutX="26.0" layoutY="291.0" mnemonicParsing="false" onMouseClicked="#Filter" prefHeight="35.0" prefWidth="313.0" text="Filter : All" />
                   <TextField fx:id="FieldSearchPenjual" layoutX="26.0" layoutY="54.0" prefHeight="35.0" prefWidth="313.0" />
                   <Label layoutX="29.0" layoutY="30.0" text="Penjual Barang">
                      <font>
@@ -66,6 +66,7 @@
                         <Font name="Arial" size="18.0" />
                      </font>
                   </Label>
+                  <Button layoutX="26.0" layoutY="209.0" mnemonicParsing="false" onMouseClicked="#Revert" prefHeight="35.0" prefWidth="313.0" text="Revert Transaction" />
                </children></Pane>
             <TableView fx:id="TableBarang" layoutX="36.0" layoutY="48.0" prefHeight="640.0" prefWidth="818.0">
               <columns>

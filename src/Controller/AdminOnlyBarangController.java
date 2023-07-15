@@ -1,10 +1,21 @@
 package Controller;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.ByteBuffer;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import org.glavo.png.PNGWriter;
+import org.glavo.png.javafx.PNGJavaFXUtils;
+
 import Model.Barang;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableArray;
@@ -20,8 +31,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.PixelFormat;
+import javafx.scene.image.PixelReader;
+import javafx.scene.image.WritablePixelFormat;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import java.awt.image.BufferedImage;
 
 public class AdminOnlyBarangController implements Initializable {
 
@@ -79,7 +95,7 @@ public class AdminOnlyBarangController implements Initializable {
         PenjualCol.setCellValueFactory(new PropertyValueFactory<Barang, String>("User"));
         StatusCol.setCellValueFactory(new PropertyValueFactory<Barang, String>("Status"));
 
-        List<Barang> SemuaBarang = DB.DaftarBarangLengkap();
+        List<Barang> SemuaBarang = DB.DaftarBarangLengkapAdminVersion();
 
         for (Barang i : SemuaBarang) {
             DataBarang.add(i);
@@ -115,7 +131,6 @@ public class AdminOnlyBarangController implements Initializable {
 
                 FilterType = 2;
                 FilterButton.setText("Filter: Belum Terjual");
-
 
                 break;
 
@@ -219,18 +234,41 @@ public class AdminOnlyBarangController implements Initializable {
         DB.DisconnectFromDataBase();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GraphicUserInterface/AdminOnlyScreenUser.fxml"));
         Scene scene = new Scene(loader.load());
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
         stage.setScene(scene);
         stage.show();
 
-        
+    }
+
+    @FXML
+    void Revert(MouseEvent event) throws IOException, SQLException {
+        Barang Barangpilihan = TableBarang.getSelectionModel().getSelectedItem();
+        if (Barangpilihan.getStatus().equals("Pending")) {
+            Barangpilihan.setStatus("Belum Terjual");
+            DB.UpdateStatusBarang(Barangpilihan.getDecoyID(), "Belum Terjual");
+            Image NewImage = Barangpilihan.getGambar();
+            try (PNGWriter writer = new PNGWriter(
+                    Files.newOutputStream(Path.of("src/product Untuk Testing Kelola Katalog/ImageHolder.PNG")))) {
+                writer.write(PNGJavaFXUtils.asArgbImage(NewImage));
+            }
+            File NewImageFile = new File("src/product Untuk Testing Kelola Katalog/ImageHolder.PNG");
+            DB.InsertBarang(Barangpilihan.getNamaBarang(), Barangpilihan.getHargaBarang(), Barangpilihan.getUser(),
+                    Barangpilihan.getKondisi(),
+                    Barangpilihan.getUkuranBarang(), Barangpilihan.getBrandBarang(), Barangpilihan.getWarnaBarang(),
+                    Barangpilihan.getKategoriBarang(), Barangpilihan.getDeskripsiBarang(), NewImageFile,
+                    Barangpilihan.getStatus());
+        }
     }
 
     @FXML
     void Keluar(MouseEvent event) {
-        ((Node)event.getSource()).getScene().getWindow().hide();
+        ((Node) event.getSource()).getScene().getWindow().hide();
         System.exit(0);
+    }
+
+    void imagetofile(Image image) {
+
     }
 
 }

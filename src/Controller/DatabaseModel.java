@@ -87,6 +87,32 @@ public class DatabaseModel {
 
     }
 
+    public void InsertBarangAdminVersion(String Nama, String Harga, String Penjual, String Kondisi, String Ukuran, String Brand,
+            String Warna, String Katagori, String Deskripsi, File Gambar, String Status) throws SQLException {
+        String sql = "INSERT INTO DataProdukBarangAdminVersion(Nama,Harga,Penjual,Kondisi,Ukuran,Brand,Warna,Katagori,Deskripsi,Gambar,Status) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+
+        try (PreparedStatement pstmt = dBConnection.prepareStatement(sql);
+                FileInputStream fis = new FileInputStream(Gambar);) {
+            pstmt.setString(1, Nama);
+            pstmt.setString(2, Harga);
+            pstmt.setString(3, Penjual);
+            pstmt.setString(4, Kondisi);
+            pstmt.setString(5, Ukuran);
+            pstmt.setString(6, Brand);
+            pstmt.setString(7, Warna);
+            pstmt.setString(8, Katagori);
+            pstmt.setString(9, Deskripsi);
+            pstmt.setBinaryStream(10, (InputStream) fis, (int) Gambar.length());
+            pstmt.setString(11, Status);
+            pstmt.executeUpdate();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            System.out.println(e);
+        }
+
+    }
+
     public User SelectUser(int ID) {
         String sql = "SELECT ID,Nama,Nomor,Username,Alamat,Email,JenisKelamin,TanggalLahir,GambarProfile FROM DataUser";
         User temp = new User();
@@ -331,6 +357,18 @@ public class DatabaseModel {
 
     }
 
+    public void UpdateStatusBarang(int ID, String Status) throws FileNotFoundException, IOException {
+        String sql = "UPDATE DataProdukBarangAdminVersion SET Status = ? WHERE ID = ?";
+        try (PreparedStatement pstmt = dBConnection.prepareStatement(sql);) {
+            pstmt.setString(1, Status);
+            pstmt.setInt(2, ID);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+
+    }
+
     public List<Barang> getSearchResult(String Search) {
         String sql = "SELECT ID,Nama,Harga,Penjual,Gambar,Kondisi,Ukuran,Brand,Warna,Katagori,Deskripsi FROM DataProdukBarang WHERE Nama like '%"
                 + Search + "%'";
@@ -403,6 +441,40 @@ public class DatabaseModel {
 
     public List<Barang> DaftarBarangLengkap() {
         String sql = "SELECT ID,Nama,Harga,Penjual,Gambar,Kondisi,Ukuran,Brand,Warna,Katagori,Deskripsi,Status FROM DataProdukBarang";
+        List<Barang> templist = new ArrayList<>();
+        try (Statement stmt = dBConnection.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+
+                Barang temp = new Barang();
+                temp.setID(rs.getInt("ID"));
+                temp.setDecoyID(rs.getInt("ID"));
+                temp.setNamaBarang(rs.getString("Nama"));
+                temp.setHargaBarang(rs.getString("Harga"));
+                temp.setUser(rs.getString("Penjual"));
+                temp.setKondisi(rs.getString("Kondisi"));
+                temp.setUkuranBarang(rs.getString("Ukuran"));
+                temp.setBrandBarang(rs.getString("Brand"));
+                temp.setWarnaBarang(rs.getString("Warna"));
+                temp.setKategoriBarang(rs.getString("Katagori"));
+                temp.setDeskripsiBarang(rs.getString("Deskripsi"));
+                InputStream iStream = rs.getBinaryStream("Gambar");
+                if (iStream != null) {
+                    Image Gambar = new Image(iStream);
+                    temp.setGambar(Gambar);
+                }
+                temp.setStatus(rs.getString("Status"));
+                templist.add(temp);
+
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return templist;
+    }
+
+    public List<Barang> DaftarBarangLengkapAdminVersion() {
+        String sql = "SELECT ID,Nama,Harga,Penjual,Gambar,Kondisi,Ukuran,Brand,Warna,Katagori,Deskripsi,Status FROM DataProdukBarangAdminVersion";
         List<Barang> templist = new ArrayList<>();
         try (Statement stmt = dBConnection.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
