@@ -46,13 +46,14 @@ public class RecentTabCardController {
 
     public void SetHBoxbyBarang(List<Barang> x) throws IOException {
         int count = 0;
+        int y = x.size() - Recent;
         int size = x.size();
-        for (Barang barang : x){
+        for (int i = 9; i >= 0; i--){
             FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("/GraphicUserInterface/RecentProductCard.fxml"));
                 HBox cardbox = loader.load();
                 RecentCardController recentCardController = loader.getController();
-                recentCardController.setDataBarangbyBarang(barang);
+                recentCardController.setDataBarangbyBarang(x.get(i));
 
                 HboxContainer.getChildren().add(cardbox);
 

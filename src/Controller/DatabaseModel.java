@@ -272,6 +272,16 @@ public class DatabaseModel {
         }
     }
 
+    public void DeletebarangAdmin(int ID) {
+        String sql = "DELETE FROM DataProdukBarangAdminVersion WHERE ID = ?";
+        try (PreparedStatement pstmt = dBConnection.prepareStatement(sql)) {
+            pstmt.setInt(1, ID);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
     public void DeleteUser(int ID) {
         String sql = "DELETE FROM DataUser WHERE ID = ?";
         try (PreparedStatement pstmt = dBConnection.prepareStatement(sql)) {
@@ -370,7 +380,7 @@ public class DatabaseModel {
     }
 
     public List<Barang> getSearchResult(String Search) {
-        String sql = "SELECT ID,Nama,Harga,Penjual,Gambar,Kondisi,Ukuran,Brand,Warna,Katagori,Deskripsi FROM DataProdukBarang WHERE Nama like '%"
+        String sql = "SELECT ID,Nama,Harga,Penjual,Gambar,Kondisi,Ukuran,Brand,Warna,Katagori,Deskripsi,Status FROM DataProdukBarang WHERE Nama like '%"
                 + Search + "%'";
         List<Barang> tempArrayList = new ArrayList<>();
         try (Statement stmt = dBConnection.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
@@ -406,7 +416,7 @@ public class DatabaseModel {
     }
 
     public List<Barang> getSearchResultKategori(String Search) {
-        String sql = "SELECT ID,Nama,Harga,Penjual,Gambar,Kondisi,Ukuran,Brand,Warna,Katagori,Deskripsi FROM DataProdukBarang WHERE Katagori like '%"
+        String sql = "SELECT ID,Nama,Harga,Penjual,Gambar,Kondisi,Ukuran,Brand,Warna,Katagori,Deskripsi,Status FROM DataProdukBarang WHERE Katagori like '%"
                 + Search + "%'";
         List<Barang> tempArrayList = new ArrayList<>();
         try (Statement stmt = dBConnection.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
@@ -537,9 +547,10 @@ public class DatabaseModel {
 
     public List<Barang> DaftarBarangDisplayRecent() {
         String sql = "SELECT ID,Nama,Harga,Penjual,Gambar,Ukuran FROM DataProdukBarang";
+        int stopper = 0;
         List<Barang> templist = new ArrayList<>();
         try (Statement stmt = dBConnection.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
-            while (rs.getInt("ID") <= 10) {
+            while (rs.next() && stopper < 10) {
 
                 Barang temp = new Barang();
                 temp.setID(rs.getInt("ID"));
@@ -555,6 +566,7 @@ public class DatabaseModel {
                 }
                 
                 templist.add(temp);
+                stopper++;
 
             }
         } catch (SQLException e) {

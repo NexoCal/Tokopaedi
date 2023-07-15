@@ -1,15 +1,11 @@
 package Controller;
 
-import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
-import java.nio.ByteBuffer;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -18,7 +14,6 @@ import org.glavo.png.javafx.PNGJavaFXUtils;
 
 import Model.Barang;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,12 +27,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
-import javafx.scene.image.PixelFormat;
-import javafx.scene.image.PixelReader;
-import javafx.scene.image.WritablePixelFormat;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import java.awt.image.BufferedImage;
+
 
 public class AdminOnlyBarangController implements Initializable {
 
@@ -245,8 +237,8 @@ public class AdminOnlyBarangController implements Initializable {
     void Revert(MouseEvent event) throws IOException, SQLException {
         Barang Barangpilihan = TableBarang.getSelectionModel().getSelectedItem();
         if (Barangpilihan.getStatus().equals("Pending")) {
+            DB.DeletebarangAdmin(Barangpilihan.getDecoyID());
             Barangpilihan.setStatus("Belum Terjual");
-            DB.UpdateStatusBarang(Barangpilihan.getDecoyID(), "Belum Terjual");
             Image NewImage = Barangpilihan.getGambar();
             try (PNGWriter writer = new PNGWriter(
                     Files.newOutputStream(Path.of("src/product Untuk Testing Kelola Katalog/ImageHolder.PNG")))) {
@@ -258,7 +250,14 @@ public class AdminOnlyBarangController implements Initializable {
                     Barangpilihan.getUkuranBarang(), Barangpilihan.getBrandBarang(), Barangpilihan.getWarnaBarang(),
                     Barangpilihan.getKategoriBarang(), Barangpilihan.getDeskripsiBarang(), NewImageFile,
                     Barangpilihan.getStatus());
+
+            DB.InsertBarangAdminVersion(Barangpilihan.getNamaBarang(), Barangpilihan.getHargaBarang(), Barangpilihan.getUser(),
+                    Barangpilihan.getKondisi(),
+                    Barangpilihan.getUkuranBarang(), Barangpilihan.getBrandBarang(), Barangpilihan.getWarnaBarang(),
+                    Barangpilihan.getKategoriBarang(), Barangpilihan.getDeskripsiBarang(), NewImageFile,
+                    Barangpilihan.getStatus());
         }
+        refresh();
     }
 
     @FXML
@@ -267,8 +266,14 @@ public class AdminOnlyBarangController implements Initializable {
         System.exit(0);
     }
 
-    void imagetofile(Image image) {
+    private void refresh(){
+        List<Barang> SemuaBarang = DB.DaftarBarangLengkapAdminVersion();
+        ObservableList<Barang> NewDataBarang = FXCollections.observableArrayList();
+        for (Barang i : SemuaBarang) {
+            NewDataBarang.add(i);
+        }
 
+        TableBarang.setItems(NewDataBarang);
     }
 
 }

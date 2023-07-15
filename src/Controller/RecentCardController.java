@@ -56,8 +56,6 @@ public class RecentCardController {
     }
 
     public void setDataBarangbyBarang( Barang barang ){
-        
-
         RecentNamaProdukDisplay.setText(barang.getNamaBarang());
         DetailRecent.setText(barang.getUkuranBarang()+"/"+barang.getWarnaBarang());
         RecentHargaProdukDisplay.setText("Rp "+barang.getHargaBarang());

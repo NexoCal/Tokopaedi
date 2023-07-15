@@ -13,6 +13,8 @@ Fixes :
 - Fix ID Mismatch in User
 - Fix User Deleteion delete wrong user
 - Fix Barang Table wont show updated data
+- Fix Search not Working (again)
+- Fix ID Mismatch in Barang
 
 ### 7-14-2023:
 

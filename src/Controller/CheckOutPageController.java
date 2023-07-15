@@ -1,5 +1,6 @@
 package Controller;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -128,10 +129,11 @@ public class CheckOutPageController implements Initializable{
     };
 
     @FXML
-    void Pesan(MouseEvent event) {
+    void Pesan(MouseEvent event) throws FileNotFoundException, IOException {
         DB.ConnectToDataBase("src/TokopaediDatabase.db");
         Barang IDBarang = new Barang();
         Barang barang = DB.SelectBarang(IDBarang.getID());
+        DB.UpdateStatusBarang(barang.getID(), "Pending");
 
         PesanDiTerimaGambar.setImage(barang.getGambar());;
         PesanDiTerimaTotal.setText("Rp "+Total.getText().replace("Rp ", ""));
@@ -209,7 +211,6 @@ public class CheckOutPageController implements Initializable{
         DB.ConnectToDataBase("src/TokopaediDatabase.db");
         Barang IDBarang = new Barang();
         Barang barang = DB.SelectBarang(IDBarang.getID());
-        DB.UpdateStatusBarang(barang.getID(), "Pending");
         DB.Deletebarang(barang.getID());
         DB.DisconnectFromDataBase();
         Parent root = FXMLLoader.load(getClass().getResource("/GraphicUserInterface/MainScreen.fxml"));

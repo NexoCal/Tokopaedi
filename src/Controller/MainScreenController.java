@@ -98,7 +98,8 @@ public class MainScreenController implements Initializable {
             if (allproduct.size() < 10) {
                 recentTabCardController.SetHBox(IDs);
             } else {
-                recentTabCardController.SetHBoxbyBarang(DB.DaftarBarangDisplayRecent());
+                List<Barang> DaftarBarang = DB.DaftarBarangDisplayRecent();
+                recentTabCardController.SetHBoxbyBarang(DaftarBarang);
             }
             VboxCardContainer.getChildren().add(Base);
         } catch (IOException e) {

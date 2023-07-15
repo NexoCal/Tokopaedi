@@ -14,9 +14,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@StyleSheets/SearchResultPage.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SearchPageController">
    <children>
-      <ScrollPane layoutY="65.0" prefHeight="735.0" prefWidth="1300.0" styleClass="ScrollBackground">
+      <ScrollPane layoutY="65.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="735.0" prefWidth="1300.0">
          <content>
-            <VBox fx:id="VboxConatiner" alignment="TOP_CENTER" prefHeight="821.0" prefWidth="1280.0" styleClass="Background">
+            <VBox fx:id="VboxConatiner" fillWidth="false" prefHeight="735.0" prefWidth="1280.0" styleClass="Background">
                <padding>
                   <Insets left="61.0" right="61.0" />
                </padding>

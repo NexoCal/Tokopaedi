@@ -65,6 +65,7 @@ public class SearchPageController implements Initializable {
     @FXML
     private Pane overlayer;
 
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         DB.ConnectToDataBase("src/TokopaediDatabase.db");
