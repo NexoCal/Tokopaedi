@@ -4,6 +4,11 @@ Pak Edi merupakan seorang politikus yang ingin beristirahat dari dunia politik d
 
 Go to [Change Log](Changelog.md)
 
+P.S untuk bapak Andhik:
+Git sering update karena banyak bigfixes, jadi di sarankan cek secara berkala. also dalam folder src ada folder produk untuk testing tambah barang
+
+Table berada pada AdminInterface.java
+
 ## Design Interface
 
 Figma : https://www.figma.com/file/4IPJyttlbWIz2vEmfkcYQM/Tokped-kawai?type=design&node-id=627%3A368&mode=design&t=zGSVuX2g3jqWUgJF-1
